@@ -15,29 +15,75 @@
 <body>
     <header>
       <?php include "navbar.php" ?>
-      <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/banner-1.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="images/banner-2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="images/banner-3.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
     </header>
+    <div id="carouselExample" class="carousel slide">
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <img src="images/banner-1.jpg" class="d-block w-100" alt="...">
+  </div>
+  <div class="carousel-item">
+    <img src="images/banner-2.jpg" class="d-block w-100" alt="...">
+  </div>
+  <div class="carousel-item">
+    <img src="images/banner-3.jpg" class="d-block w-100" alt="...">
+  </div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
+</div>
+<!-- slider end  -->
+<div class="set-holder">
+    <div class="over-the-img">
+    <div class="d-flex justify-content-around ">
+        <div class="back-white w-auto">
+            <h5>Home appliances | 10% off on select cards</h5>
+            <div class="d-flex">
+                <img src="images/product-1.jpg" alt="" class="me-2 ">
+                <img src="images/product-2.jpg" alt="">
 
+            </div>
+            <div class="d-flex my-2">
+                <img src="images/product-3.jpg" alt="" class="me-2">
+                <img src="images/product-4.jpg" alt="">
+
+            </div>
+
+        </div>
+        <div class="back-white w-auto">
+            <h5>Up to 60% off | Styles for men</h5>
+            <div class="d-flex">
+                <img src="images/product-5.jpg" alt="" class="me-2 ">
+                <img src="images/product-6.jpg" alt="">
+
+            </div>
+            <div class="d-flex my-2">
+                <img src="images/product-7.jpg" alt="" class="me-2">
+                <img src="images/product-8.jpg" alt="">
+
+            </div>
+</div>
+        <div class="back-white w-auto">
+            <h5>Today’s Deals</h5>
+            <div class="d-flex">
+                <img src="images/product-1.jpg" alt="" class="me-2 ">
+                <img src="images/product-2.jpg" alt="">
+
+            </div>
+            <div class="d-flex my-2">
+                <img src="images/product-3.jpg" alt="" class="me-2">
+                <img src="images/product-4.jpg" alt="">
+
+            </div>
+</div>
+    </div>
+</div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
     </script>
