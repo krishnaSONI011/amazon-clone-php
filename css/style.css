@@ -14,6 +14,9 @@
     width: 100%;
     height: 40px;
 }
+.signin{
+    padding:5px;
+}
 .form-input:focus{
     outline-color: orange;
     box-shadow: 2px 2px 10px orange;
@@ -24,7 +27,11 @@
 .nav-main{
     background-color: #181e27;
     color: white;
-    padding: 10px;
+    padding: 5px;
+    height: 81px;
+}
+.dropdown-menu li{
+padding: 10px;
 }
 #btn-search{
     background-color: #febd69;
@@ -37,3 +44,17 @@
 .white-border:hover{
     border: 1px white solid;
 }
+.white-border{
+    padding:5px;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+}
+.carousel-control-prev{
+    height: 321px;
+}
+.carousel-control-next{
+    height: 321px;
+}
+    

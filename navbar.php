@@ -1,7 +1,7 @@
 <nav>
             <div class="nav-main d-flex justify-content-between align-items-center">
 
-                <div class="img">
+                <div class="img white-border">
                     <img src="images/logo3.png" alt="" class="logo">
                 </div>
 
@@ -26,20 +26,20 @@
                                 <span><strong>Account&Lists</strong></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li class="text-center"><button class="btn btn-warning">Sign in</button></li>
+                                <li><a class="dropdown-item" href="#">Your Account</a></li>
+                                <li><a class="dropdown-item" href="#">Your Orders</a></li>
                             </ul>
                         </div>
                     </div>
                     <!--sign in -->
-                    <div class="return-order">
+                    <div class="return-order white-border">
                         <span>Retuen</span><br>
                         <span><strong>& Orders</strong></sapn>
                     </div>
                     <!--return&order -->
 
-                    <div class="cart">
+                    <div class="cart white-border">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
                                 class="bi bi-cart" viewBox="0 0 16 16">
