@@ -1,4 +1,4 @@
-<nav>
+<nav id="navbar">
             <div class="nav-main d-flex justify-content-between align-items-center">
 
                 <div class="img white-border">

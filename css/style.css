@@ -1,7 +1,14 @@
 body{
     /* background-color: rgb(234, 226, 226); */
-    background:linear-gradient(45deg ,rgb(234, 226, 226));
+    background: rgb(177,177,177)
 }
+#navbar{
+    position: sticky;
+    /* top:0; */
+    width: 100%;
+    z-index: 123;
+}
+
 .logo{
     width: 137px;
     height: auto;
@@ -10,6 +17,7 @@ body{
     width: 42%;
 
 }
+
 .search input{
     border-top-left-radius:10px ;
     border-bottom-left-radius:10px ;
@@ -76,7 +84,9 @@ height: auto;
     /* flex-flow: row wrap; */
     width: 100%;
    /* z-index: 200; */
-   height: 340px;
+   height: 362px;
+   background: rgb(177,177,177);
+background: linear-gradient(0deg, rgba(177,177,177,1) 38%, rgba(255,255,255,0) 100%);
 }
 .pad-in-the-img{
     /* padding:30px */
@@ -85,6 +95,10 @@ height: auto;
 .back-white{
     background-color: white;
     padding: 30px;
+}
+.category-item img{
+width: 200px;
+height: auto;
 }
 @media (max-width:1323px) {
     .set-holder img{
