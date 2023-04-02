@@ -1,6 +1,6 @@
 body{
     /* background-color: rgb(234, 226, 226); */
-    background: rgb(177,177,177)
+    background: #e3e6e6
 }
 #navbar{
     position: sticky;
@@ -86,7 +86,7 @@ height: auto;
    /* z-index: 200; */
    height: 362px;
    background: rgb(177,177,177);
-background: linear-gradient(0deg, rgba(177,177,177,1) 38%, rgba(255,255,255,0) 100%);
+background: linear-gradient(0deg, #e3e6e6 38%, rgba(255,255,255,0) 100%);
 }
 .pad-in-the-img{
     /* padding:30px */
@@ -100,6 +100,21 @@ background: linear-gradient(0deg, rgba(177,177,177,1) 38%, rgba(255,255,255,0) 1
 width: 200px;
 height: auto;
 }
+footer{
+    background-color: #232f3e;
+    color: white;
+    padding: 30px;
+}
+footer a{
+    text-decoration:none;
+    color: white;
+}
+footer a:hover{
+    text-decoration: underline;
+}
+/* .foot2{
+    background-color: #131a22;
+} */
 @media (max-width:1323px) {
     .set-holder img{
        max-width: 150px;
