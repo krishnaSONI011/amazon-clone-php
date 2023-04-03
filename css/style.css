@@ -115,6 +115,23 @@ footer a:hover{
 /* .foot2{
     background-color: #131a22;
 } */
+.btn-full{
+    width: 100%;
+}
+.form-cont{
+    border:2px gray solid;
+    padding: 30px;
+    background-color: white;
+    border-radius: 5px;
+}
+#btn-caa{
+    border:1px black solid;
+    border-radius: 5px;
+    
+}
+.box-sh{
+    border-bottom: 1px gray solid;
+}
 @media (max-width:1323px) {
     .set-holder img{
        max-width: 150px;
