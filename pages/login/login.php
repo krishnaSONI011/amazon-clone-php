@@ -21,14 +21,14 @@
                 </div>
                 <div class="form-cont">
                     <h2>Sign in</h2>
-                    <form action="">
+                    <form action="../../backend/log.php" method="POST">
                         <div class="my-3">
                             <label for="">Email or mobile phone number</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="email">
                         </div>
                         <div class="my-3">
                             <label for="">Password</label>
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" name="password">
                         </div>
                         <div class="my-3 btn-full">
                             <input type="submit" value="Sign in" class="btn btn-warning btn-full">
