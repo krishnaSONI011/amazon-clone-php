@@ -96,6 +96,13 @@ background: linear-gradient(0deg, #e3e6e6 38%, rgba(255,255,255,0) 100%);
     background-color: white;
     padding: 30px;
 }
+.card img{
+    width: 60%;
+    height: auto;
+}
+.card strong{
+    font-size: 25px;
+}
 .category-item img{
 width: 200px;
 height: auto;
