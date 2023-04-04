@@ -107,6 +107,14 @@ background: linear-gradient(0deg, #e3e6e6 38%, rgba(255,255,255,0) 100%);
 width: 200px;
 height: auto;
 }
+.pro-img {
+    width: 91%;
+    height: auto;
+}
+.daam{
+    font-size:25px;
+}
+
 footer{
     background-color: #232f3e;
     color: white;
@@ -122,6 +130,15 @@ footer a:hover{
 /* .foot2{
     background-color: #131a22;
 } */
+.btn-orange{
+    background-color: #ffa41c;
+}
+.border-r{
+    border-radius: 70px;
+}
+.btn-orange:hover{
+    background-color: #fe9a02;
+}
 .btn-full{
     width: 100%;
 }
@@ -138,6 +155,14 @@ footer a:hover{
 }
 .box-sh{
     border-bottom: 1px gray solid;
+}
+.icon{
+    color:#007185;
+    width: 50%;
+}
+.icon img{
+    width:50px;
+    height: auto;
 }
 @media (max-width:1323px) {
     .set-holder img{
