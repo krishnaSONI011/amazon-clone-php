@@ -1,3 +1,16 @@
+<?php 
+include "backend/db_connect.php";
+$category_id =$_GET['categoryid'];
+$subcategory_id=$_GET['subcategoryid'];
+
+$sql ="SELECT * FROM `product` WHERE `category_id`=1";
+$result=mysqli_query($conn,$sql);
+
+$num =mysqli_num_rows($result);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,19 +28,22 @@
     <?php include "navbar.php" ?>
     <div class="container">
         <div class="row">
+            <?php if($num > 0){ 
+                while($row=mysqli_fetch_array($result)){ ?>
             <div class="col-md-3 my-3 text-center ">
                 <div class="card text-center" style="width: 18rem;">
                 <div class="text-center">
-                    <img src="images/product-img.jpg" class="card-img-top" alt="..."></div>
+                    <img src="<?php echo $row['pro_image'] ?>" class="card-img-top" alt="..."></div>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                            <span>&#8377;</sapn> <strong>984</strong>
+                        <h5 class="card-title"><?php echo $row['name'] ?></h5>
+                        <p class="card-text"><?php echo $row['description'] ?></p>
+                            <span>&#8377;</sapn> <strong><?php echo $row['price'] ?></strong>
                     </div>
                 </div>
 
             </div>
+            <?php }
+            } ?>
          <!-- col-md-3-->
          
         </div>

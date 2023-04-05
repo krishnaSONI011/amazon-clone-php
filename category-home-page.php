@@ -1,10 +1,15 @@
+
+
+
+
+
 <div class="main-category container text-bg-light p-3 ">
         <div class="container">
             <h4>Fashion</h4>
         </div>
         <div class="d-flex container justify-content-around">
             <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
+                <a href="allproduct.php?categoryid=1&subcategoryid=1" class="text-decoration-none" style="color:black">
                     <img src="images/mens-cate.jpg" alt="">
                     <p>mens</p>
                 </a>
