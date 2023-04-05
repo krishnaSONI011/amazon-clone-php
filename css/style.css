@@ -8,7 +8,9 @@ body{
     width: 100%;
     z-index: 123;
 }
-
+.white{
+    background-color: white;
+}
 .logo{
     width: 137px;
     height: auto;
@@ -142,6 +144,16 @@ footer a:hover{
 .btn-full{
     width: 100%;
 }
+.cart-img img{
+    height: auto;
+    width: 35%;
+}
+.pesa-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
 .form-cont{
     border:2px gray solid;
     padding: 30px;
@@ -163,6 +175,12 @@ footer a:hover{
 .icon img{
     width:50px;
     height: auto;
+}
+.cart-body a{
+    color:#007185;
+}
+.qty{
+    margin-top: 50px;
 }
 @media (max-width:1323px) {
     .set-holder img{

@@ -29,8 +29,9 @@
                         <span><strong>Account&Lists</strong></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="text-center"><a href="backend/logout.php"><button class="btn btn-warning" id="btn-log_out">Log out</button></a></li>
-                        
+                        <li class="text-center"><a href="backend/logout.php"><button class="btn btn-warning"
+                                    id="btn-log_out">Log out</button></a></li>
+
                         <li><a class="dropdown-item" href="#">Your Account</a></li>
                         <li><a class="dropdown-item" href="#">Your Orders</a></li>
                     </ul>
@@ -65,14 +66,30 @@
             <!--return&order -->
 
             <div class="cart white-border">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
-                        class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                    </svg></sapn>
-                    <sapn>cart</sapn>
-                    </i>
+                <?php if(isset($_SESSION['login'])){ 
+?>
+                <a href="cart.php" class="text-decoration-none text-light">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
+                            class="bi bi-cart" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg></sapn>
+                        <sapn>cart</sapn>
+                </a>
+                 <?php  } 
+                  if(!isset($_SESSION['login'])){?>
+                <a href="pages/login/login.php" class="text-decoration-none text-light">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
+                            class="bi bi-cart" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg></sapn>
+                        <sapn>cart</sapn>
+                </a>
+                <?php       }
+                   ?>
             </div>
         </div>
 
