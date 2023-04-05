@@ -43,7 +43,7 @@
 ?>
             <div class="signin white-border">
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="pages/login/login.php" role="button">
+                    <a class="nav-link dropdown-toggle" href="pages/login/login.php?pageid=home" role="button">
                         <span>Hello,sign in </span><br>
                         <span><strong>Account&Lists</strong></span>
                     </a>
@@ -79,7 +79,7 @@
                 </a>
                  <?php  } 
                   if(!isset($_SESSION['login'])){?>
-                <a href="pages/login/login.php" class="text-decoration-none text-light">
+                <a href='pages/login/login.php?pageid=cart' class="text-decoration-none text-light">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
                             class="bi bi-cart" viewBox="0 0 16 16">

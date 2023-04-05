@@ -1,3 +1,12 @@
+<?php  
+if(isset($_GET['pageid'])){
+$page_id=$_GET['pageid'];
+}
+else{
+    $page_id =null;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +30,7 @@
                 </div>
                 <div class="form-cont">
                     <h2>Sign in</h2>
-                    <form action="../../backend/log.php" method="POST">
+                    <form action="../../backend/log.php?pageid=<?php echo $page_id ?>" method="POST">
                         <div class="my-3">
                             <label for="">Email or mobile phone number</label>
                             <input type="text" class="form-control" name="email">

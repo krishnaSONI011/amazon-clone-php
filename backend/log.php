@@ -1,4 +1,6 @@
 <?php 
+ $page_id=$_GET['pageid'];
+ 
 session_start();
 if($_SERVER['REQUEST_METHOD']=="POST"){
     include "db_connect.php" ;
@@ -13,7 +15,14 @@ if($num ==1){
         $_SESSION['name'] =$row['firstname'];
         $_SESSION['user_id'] =$row['id'];
         $_SESSION['login'] =true;
-        header("Location: ../index.php");
+        if($page_id=='home'){
+        header("Location: ../");
+        }
+        else if($page_id=='cart'){
+            header("Location: ../cart.php");
+       
+
+        }
     }   
 
     else{

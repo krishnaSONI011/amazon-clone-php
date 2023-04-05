@@ -18,7 +18,7 @@
     <header class="">
         <?php include "navbar.php" ?>
     </header>
-    <div id="carouselExample" class="carousel slide">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="images/banner-1.jpg" class="d-block w-100" alt="...">
