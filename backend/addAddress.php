@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $pincode=$_POST['pincode'];
     $state =$_POST['state'];
     
-    $sql ="INSERT INTO `address`(`user_id`,`address_line1`,`address_line2`,`city`,`landmark`,`state`,`pincode`,`name`) VALUE('$user_id','$address_line1','$address_line2','$city','$landmark','$state','$pincode','$name')";
+    $sql ="INSERT INTO `address`(`user_id`,`address_line1`,`address_line2`,`city`,`landmark`,`state`,`pincode`,`name`,`mobile`) VALUE('$user_id','$address_line1','$address_line2','$city','$landmark','$state','$pincode','$name','$mobile')";
     $result=mysqli_query($conn,$sql);
     if($result){
         header("Location:../all_address.php");

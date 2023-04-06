@@ -24,7 +24,7 @@
 ?>
             <div class="signin white-border">
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="pages/" role="button">
+                    <a class="nav-link dropdown-toggle" href="your_account.php" role="button">
                         <span>Hello,<?php echo $_SESSION['name']; ?> </span><br>
                         <span><strong>Account&Lists</strong></span>
                     </a>

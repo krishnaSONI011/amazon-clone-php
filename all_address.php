@@ -15,13 +15,20 @@
 </head>
 
 <body>
+    
     <?php include "navbar.php" ?>
     <?php 
 if(!isset($_SESSION['login'])){
     header("Location:pages/login/login.php?pageid=address");
     exit;
 }
+include "backend/db_connect.php";
 $user_id =$_SESSION['user_id'];
+$sql ="SELECT * FROM `address` WHERE `user_id`='$user_id'";
+$reslut =mysqli_query($conn,$sql);
+$num =mysqli_num_rows($reslut);
+
+  
 ?>
     <div class="container p-4">
         <h2>Your Address</h2>
@@ -43,18 +50,20 @@ border-radius: 30px; margin-right:10px">
                         </div>
                     </a>
                 </div>
+                <?php if($num >0){ 
+                    while($row=mysqli_fetch_array($reslut)){
+                    ?>
                 <div class="col-md-3 p-3 m-2 white" style="border:2px gray solid;border-radius:30px">
                     <div class="address">
-                        <p><strong>Krishna soni</strong></p>
-                        <p>Near PNB ATM,sarafa bazar deeg
-                            DEEG, RAJASTHAN 321203
-                            India</p>
-                        <p>phone number:999900099</p>
+                        <p><strong><?php echo $row['name'] ?></strong></p>
+                        <p><?php echo $row['address_line1'].",";echo $row['address_line2'].",";echo $row['city']." ";echo $row['pincode']." ";echo $row['state'] ?></p>
+                        <p>phone number:<?php echo $row['mobile'] ?></p>
                         <div><a href="#" class="text-decoration-none" style="color:#007185">Edit</a> | <a href="#"
                                 class="text-decoration-none" style="color:#007185">Remove</a></div>
                     </div>
                 </div><!-- col-->
-
+                <?php  }
+                }?>
             </div>
             <!--row -->
         </div>

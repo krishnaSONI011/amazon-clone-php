@@ -68,7 +68,7 @@ a:link {
             </div>
         </a>
 
-        <a href="">
+        <a href="all_address.php">
             <div class="main2-con row my-3 py-2 white">
                 <div class="col-md-2 my-2"> <img src="images/address.png" alt="" width="95px">
                 </div>
