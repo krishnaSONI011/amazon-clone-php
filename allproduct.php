@@ -31,6 +31,7 @@ $num =mysqli_num_rows($result);
             <?php if($num > 0){ 
                 while($row=mysqli_fetch_array($result)){ ?>
             <div class="col-md-3 my-3 text-center ">
+                <a href="product.php?id=<?php echo $row['id'] ?>" class="text-decoration-none">
                 <div class="card text-center" style="width: 18rem;">
                 <div class="text-center">
                     <img src="<?php echo $row['pro_image'] ?>" class="card-img-top" alt="..."></div>
@@ -40,7 +41,7 @@ $num =mysqli_num_rows($result);
                             <span>&#8377;</sapn> <strong><?php echo $row['price'] ?></strong>
                     </div>
                 </div>
-
+    </a>
             </div>
             <?php }
             } ?>

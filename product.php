@@ -1,3 +1,13 @@
+<?php  
+$id= $_GET['id'];
+include "backend/db_connect.php";
+$sql ="SELECT * FROM `product` WHERE `id` ='$id'";
+
+$result =mysqli_query($conn,$sql);
+$row =mysqli_fetch_array($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,17 +25,18 @@
     <div class="row">
         <div class="col-md-4 text-center ">
             
-                <img src="images/p-img.jpg" alt="" style="width:90%">
+                <img src="<?php echo $row['pro_image'] ?>" alt="" style="width:90%">
             
 
         </div>
         <div class="col-md-4">
             <div class="product-title">
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint fugit saepe quibusdam alias unde, architecto odit voluptates placeat, praesentium autem eos sit ea ut? Numquam labore animi aspernatur quae quasi!</p>
+                <h3><?php echo $row['name']?></h3>
+               <p><?php  echo $row['description']  ?></p>
             </div><!--product-title -->
             <hr>
             <div class="pro-price">
-                <span class="price-logo">&#8377;</span><strong class="daam">10000</strong>
+                <span class="price-logo">&#8377;</span><strong class="daam"><?php echo $row['price'] ?></strong>
                 <p>Inclusive of all taxes</p>
             </div>
             <hr>

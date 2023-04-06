@@ -182,6 +182,12 @@ footer a:hover{
 .qty{
     margin-top: 50px;
 }
+#forborder{
+    border: 4px gray dashed;
+    padding: 54px;
+    border-radius: 30px;
+}
+
 @media (max-width:1323px) {
     .set-holder img{
        max-width: 150px;
