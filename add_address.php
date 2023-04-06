@@ -19,7 +19,7 @@
                 <div class="p-4">
                     <h2>Add a new address</h2>
                 </div>
-                <form action="backend/addAddress.php">
+                <form action="backend/addAddress.php?user_id=<?php echo $_GET['user_id']?>" method="POST">
                     <div class="mb-3">
                         <label for="" class="form-label">Full name (First and Last name)</label>
                         <input type="text" class="form-control" name="name" id="" aria-describedby="emailHelpId">
@@ -57,7 +57,7 @@
                         </div>
                         <!--row -->
                     </div>
-                    <input type="button" value="Add Address" class ="btn btn-warning">
+                    <input type="submit" value="Add Address" class ="btn btn-warning">
                 </form>
             </div><!-- container w-50 -->
         </div><!-- container -->

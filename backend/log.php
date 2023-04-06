@@ -23,6 +23,10 @@ if($num ==1){
        
 
         }
+        else if($page_id=='address'){
+            header("Location:../all_address.php");
+
+        }
     }   
 
     else{

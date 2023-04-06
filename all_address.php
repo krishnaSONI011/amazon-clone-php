@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +16,13 @@
 
 <body>
     <?php include "navbar.php" ?>
+    <?php 
+if(!isset($_SESSION['login'])){
+    header("Location:pages/login/login.php?pageid=address");
+    exit;
+}
+$user_id =$_SESSION['user_id'];
+?>
     <div class="container p-4">
         <h2>Your Address</h2>
 
@@ -21,7 +31,7 @@
 
                 <div class="col-md-3 white" id="forborder" style=" border: 3px gray dashed;padding: 54px;
 border-radius: 30px; margin-right:10px">
-                    <a href="#" class="text-decoration-none">
+                    <a href="add_address.php?user_id=<?php echo $user_id ?>" class="text-decoration-none">
                         <div class="add text-center ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
                                 class="bi bi-plus" viewBox="0 0 16 16">
