@@ -101,14 +101,14 @@ if(isset($_POST['submit'])){
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="col-md-12 mb-3">
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="status" id="">
                                 <option value="1">Select Status</option>
                                 <option value="1">Active</option>
                                 <option value="0">Deactive</option>
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control" id="categories-dropdown">
+                            <select name="category" class="form-control" id="categories-dropdown">
                                 <option>select categories</option>
                                 <?php
                                      $res=mysqli_query($conn, "SELECT id,categories FROM category order by id ASC");
