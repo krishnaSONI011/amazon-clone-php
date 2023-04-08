@@ -9,6 +9,7 @@ if(!$conn){
     header("location: error.php");
     die("Error".  mysqli_connect_error());
 }else{
-echo"database connected";
+// echo"database connected";
 }
 ?>
+

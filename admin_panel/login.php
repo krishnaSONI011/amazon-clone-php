@@ -10,9 +10,12 @@ include 'partials/_dbconnect.php';
   
  $email = $_POST['email'];                     
  $password = $_POST['password'];
- 
+  
 
-    // $sql = "Select * from users8201 where username = '$username' AND password = '$password'";
+
+
+
+ // $sql = "Select * from users8201 where username = '$username' AND password = '$password'";
     $sql = "Select * from signup where email = '$email'";
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
@@ -23,10 +26,7 @@ include 'partials/_dbconnect.php';
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['email'] = $email;
-
-          $sql="SELECT `name` FROM `signup` WHERE email=$email";
-          $result = mysqli_query($sql. $conn);
-          $_SESSION['name']= $result;
+          $_SESSION['name'] =$row['name'];
           header("location: admin.php");
         }
         else{
