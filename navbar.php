@@ -2,7 +2,8 @@
     <div class="nav-main d-flex justify-content-between align-items-center">
 
         <div class="img white-border">
-            <img src="images/logo3.png" alt="" class="logo">
+            <a href="index.php">
+            <img src="images/logo3.png" alt="" class="logo"></a>
         </div>
 
         <div class="search d-flex">
