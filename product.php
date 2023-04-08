@@ -5,7 +5,9 @@ $sql ="SELECT * FROM `product` WHERE `id` ='$id'";
 
 $result =mysqli_query($conn,$sql);
 $row =mysqli_fetch_array($result);
-
+if(!isset($_GET['status'])){
+    $_GET['status'] =null;
+}
 ?>
 
 <!DOCTYPE html>
