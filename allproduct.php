@@ -3,7 +3,7 @@ include "backend/db_connect.php";
 $category_id =$_GET['categoryid'];
 $subcategory_id=$_GET['subcategoryid'];
 
-$sql ="SELECT * FROM `product` WHERE `category_id`=1 AND ";
+$sql ="SELECT * FROM `product` WHERE `category_id`='$category_id' ";
 $result=mysqli_query($conn,$sql);
 
 $num =mysqli_num_rows($result);
