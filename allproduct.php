@@ -1,14 +1,14 @@
 <?php 
-include "backend/db_connect.php";
+include "admin_panel/partials/_dbconnect.php";
 $category_id =$_GET['categoryid'];
 $subcategory_id=$_GET['subcategoryid'];
 
-$sql ="SELECT * FROM `product` WHERE `category_id`=1 AND ";
+$sql ="SELECT * FROM `product` WHERE `categories_id`= $category_id AND `subcategories_id` = $subcategory_id";
 $result=mysqli_query($conn,$sql);
 
 $num =mysqli_num_rows($result);
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $num =mysqli_num_rows($result);
                 <a href="product.php?id=<?php echo $row['id'] ?>" class="text-decoration-none">
                 <div class="card text-center" style="width: 18rem;">
                 <div class="text-center">
-                    <img src="<?php echo $row['pro_image'] ?>" class="card-img-top" alt="..."></div>
+                    <img src="<?php echo $row['image'] ?>" class="card-img-top" alt="..."></div>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['name'] ?></h5>
                         <p class="card-text"><?php echo $row['description'] ?></p>

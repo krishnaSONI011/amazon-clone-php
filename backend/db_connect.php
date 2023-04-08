@@ -1,3 +1,3 @@
 <?php
-$conn=mysqli_connect('localhost:3307','root',1598,'amazon');
+$conn=mysqli_connect('localhost','root','','amazon');
 ?>
