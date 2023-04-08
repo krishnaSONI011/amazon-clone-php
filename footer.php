@@ -2,7 +2,7 @@
     <div class="row container ">
         <div class="col-md-6 text-center">
             <h5>Admin Panal</h5>
-            <a href="#">Dashboard</a>
+            <a href="admin_panel/index.php">Dashboard</a>
         </div>
         <div class="col-md-6 text-center">
             <h5>connect with us</h5>
