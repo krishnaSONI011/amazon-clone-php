@@ -83,7 +83,9 @@ else{
                 <div class="text-bg-light text-center p-2">
                     <p>Subtotle(<span id="num">0</span> items):<strong id="total">0<strong></p>
                     <div>
-                        <button class="btn btn-warning">Proceed to Buy</button>
+                        <form action="checkout_page.php?id=<?php echo $id ?>&page_id=cart" method="POST">
+                           <input type="hidden" name="price" id="sending" value="">
+                        <button class="btn btn-warning">Proceed to Buy</button></form>
                     </div>
                 </div>
             </div>
@@ -136,6 +138,7 @@ else{
 //    console.log(total)
 
 document.getElementById('total').innerText =total;
+document.getElementById('sending').value= total
 document.getElementById('num').innerText = cart.length;
 
     }

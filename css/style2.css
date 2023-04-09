@@ -23,3 +23,12 @@
 #sele{
     display: none;
 }
+.item-img{
+    width: 26%;
+    height: auto;
+}
+.summary{
+    border: 1px gray solid;
+    border-radius: 10px;
+    padding: 30px;
+}

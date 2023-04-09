@@ -1,3 +1,14 @@
+<?php
+$user_id=$_GET['id'];
+$page_id=$_GET['page_id'];
+include "backend/db_connect.php";
+$sql ="SELECT * FROM `address` WHERE `user_id`='$user_id'";
+$adress =mysqli_query($conn,$sql);
+$num_address =mysqli_num_rows($adress);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,38 +45,126 @@
         </div>
     </header>
     <div class="container">
-        <div class="row">
-                <div class="col-md-9">
-                        <div class="address">
-                            <h4>1. Select a delivery address</h4>
-                            <div id="main-address">
-                            <div class="address-body m-2">
-                                <div class="body d-flex width ">
-                                    <input type="radio" value="1" id="1" class="radio" name="radio">
-                                    <label for="1" class="label"><strong> Krishna soni</strong> kanod student hostel, Pacific University, Debari, UDAIPUR, RAJASTHAN, 313001, India, Phone number: 9549990097</label>
-                                </div>
+        <div class="row p-4">
+            <div class="col-md-9">
+                <div class="address">
+                    <h4>1. Select a delivery address</h4>
+                    <hr>
+                    <div id="main-address">
+                        <?php if($num_address > 0) {
+                            $forid =1;
+                                while($row=mysqli_fetch_array($adress)){
 
+                            ?>
+                        <div class="address-body m-2">
+                            <div class="body d-flex width ">
+                                <input type="radio" value="1" id="<?php echo $forid?>" class="radio" name="radio">
+                                <label for="<?php echo $forid?>"
+                                    class="label"><strong><?php echo $row['name'] ?></strong>
+                                    <?php echo $row['address_line1'].","; echo $row['address_line2'].","; echo $row['city']." "; echo $row['state']." "; echo $row['pincode']." "?>
+                                    Phone number:<?php echo $row['mobile'] ?> </label>
                             </div>
-                            <!-- address-body -->
-                            <div class="address-body m-2">
-                                <div class="body d-flex width ">
-                                    <input type="radio" value="2" id="2" class="radio" name="radio">
-                                    <label for="2" class="label"><strong> vivek</strong> kanod student hostel, Pacific University, Debari, UDAIPUR, RAJASTHAN, 313001, India, Phone number: 9549990097</label>
-                                </div>
 
-                            </div>
-                            <!-- address-body -->
                         </div>
-                        <div id="sele">
-                            <strong> Selected Address : </strong> <p id="address-here">  </p>
-                            <input type="hidden" name="final-address" value="" id="address-here-database" >
-                        </div>
-                        <button type="button" class="btn btn-warning" id="address_btn">Select address</button>
-                        <!-- main-address -->
+                        <!-- address-body -->
+                        <?php
+                       $forid +=1;
+                        }
+                    }
+                    ?>
                     </div>
-                        <!-- address -->
+                    <div id="sele">
+                        <strong> Selected Address : </strong>
+                        <p id="address-here"> </p>
+                        <input type="hidden" name="final-address" value="" id="address-here-database">
+                    </div>
+                    <!-- main-address -->
+                    <button type="button" class="btn btn-warning" id="address_btn">Select address</button>
+
+
                 </div>
-                <!-- col-md-9 -->
+                <hr>
+                <!-- address -->
+                <div class="payment">
+                    <h4>2. Payment Method </h4>
+                    <hr>
+                    <div class="payment-body">
+                        <input type="radio" name="payment" id="cash">
+                        <label for="cash">Cash on delivery</label>
+                    </div>
+                    <hr>
+                </div>
+                <!-- payment -->
+                <div class="items">
+                    <h4>3.Items</h4>
+                    <hr>
+                    <?php 
+                    if($page_id =="cart"){
+                $sql2 ="SELECT * FROM `cart` WHERE `user_id` ='$user_id'";
+                $cart =mysqli_query($conn,$sql2);
+                while($row2=mysqli_fetch_array($cart)){
+                    $price = $_POST['price'] ==null ? 3 :$_POST['price'];
+                    $pro_id =$row2['product_id'];
+                    $sql3 ="SELECT * FROM `product` WHERE `id` ='$pro_id'";
+                    $product =mysqli_query($conn,$sql3);
+                    $row3 =mysqli_fetch_array($product);
+                 ?>
+                    <div class="body p-2">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="<?php echo $row3['pro_image'] ?>" alt="" class="item-img">
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php }
+                    }
+                                     ?>
+                    <?php 
+                    if($page_id =="product"){
+               
+                        $pro_id =$_GET['product_id'];
+                        $sql3 ="SELECT * FROM `product` WHERE `id` ='$pro_id'";
+                        $product =mysqli_query($conn,$sql3);
+                        $row3 =mysqli_fetch_array($product);
+                        $p_price =$row3['price'];
+                        ?>
+                    <div class="body p-2">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="<?php echo $row3['pro_image'] ?>" alt="" class="item-img">
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php }
+                    
+                                     ?>
+                </div>
+                <hr>
+            </div>
+            <!-- col-md-9 -->
+            <div class="col-md-3">
+                <div class="summary">
+                    <hr>
+                    <p>no. of items: 2</p>
+                    <p> totle: 400</p>
+                    <?php $price = $_POST['price'] ==null ? $p_price :$_POST['price']; ?>
+                    
+                    <hr>
+                    <p id="">Oreder Total: <?php  echo $price ?></p>
+                    <hr>
+                    <button class="btn btn-warning">Proceed to buy</button>
+                </div>
+            </div>
         </div>
         <!-- row -->
     </div>
@@ -74,7 +173,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 
-<script src="js/script2.js"></script>
+    <script src="js/script2.js"></script>
 </body>
 
 </html>
