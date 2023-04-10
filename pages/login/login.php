@@ -45,7 +45,7 @@ else{
                     </form>
                 </div>
                 <div class="my-3 text-center">
-                    <button id="btn-caa">Create a Amazon account</button>
+                  <a href="user_signup.php"><button id="btn-caa">Create a Amazon account</button></a> 
                 </div>
             </div>
         </div>
