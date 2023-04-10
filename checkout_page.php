@@ -136,7 +136,7 @@ $num_address =mysqli_num_rows($adress);
                     <div class="body p-2">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <img src="<?php echo $row3['pro_image'] ?>" alt="" class="item-img">
+                                <img src="<?php echo $row3['image'] ?>" alt="" class="item-img">
                             </div>
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
