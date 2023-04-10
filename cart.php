@@ -50,7 +50,7 @@ $num =mysqli_num_rows($result);
                 <div class="cart-body ">
                     <div class="d-flex cart">
                         <div class="cart-img text-center ">
-                            <img src="<?php echo $row2['pro_image'] ?>" alt="">
+                            <img src="<?php echo $row2['image'] ?>" alt="">
                         </div>
                         <div class="" style="width:50%">
                             <p><strong><?php echo $row2['name']?></strong> <?php echo $row2['description']?></p>

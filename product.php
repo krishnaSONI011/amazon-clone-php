@@ -30,7 +30,7 @@ if(!isset($_GET['status'])){
             <div class="row">
                 <div class="col-md-4 text-center ">
 
-                    <img src="<?php echo $row['pro_image'] ?>" alt="" style="width:90%">
+                    <img src="<?php echo $row['image'] ?>" alt="" style="width:90%">
 
 
                 </div>

@@ -34,7 +34,7 @@ $num =mysqli_num_rows($result);
                 <a href="product.php?id=<?php echo $row['id'] ?>" class="text-decoration-none">
                 <div class="card text-center" style="width: 18rem;">
                 <div class="text-center">
-                    <img src="<?php echo $row['pro_image'] ?>" class="card-img-top" alt="..."></div>
+                    <img src="<?php echo $row['image'] ?>" class="card-img-top" alt="..."></div>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['name'] ?></h5>
                         <p class="card-text"><?php echo $row['description'] ?></p>
