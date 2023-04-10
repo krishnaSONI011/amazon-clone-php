@@ -42,23 +42,32 @@ include 'partials/_dbconnect.php';
 
 
 
-
     <?php
 
 require 'partials/_dbconnect.php';
 $showmassage=false;
 if(isset($_POST['submit'])){
- 
-    $catname=$_POST['catname'];
-    $catstatus=$_POST['catstatus'];
-    
-    $sql="INSERT INTO `categories`(`categories`,`status`) VALUE('$catname','$catstatus')";
-    $result=mysqli_query($conn,$sql);
-    if($result){
-        $showmassage=true;
-        
-    }
+ $product_name=$_POST['product_name'];
+ $product_price=$_POST['product_price'];
+ $img_loc=$_FILES['product_image']['tmp_name'];
+ $img_name=$_FILES['product_image']['name'];
+ $img_des = "admin_panel/uploaded_Images/".$img_name;
+ move_uploaded_file($img_loc, 'uploaded_Images/' .$img_name);
 
+ $product_disc=$_POST['product_disc'];
+ $status=$_POST['status'];
+ $select_cat_id=$_POST['select_cat_id'];
+ $select_subcat_id=$_POST['select_subcat_id'];
+
+ $sql="INSERT INTO `product`( `name`, `description`, `image`, `price`, `category_id`, `subcategory_id`, `status`) VALUES ('$product_name','$product_disc','$img_des','$product_price','$select_cat_id','$select_subcat_id','$status')";
+
+ $result=mysqli_query($conn,$sql);
+ if($result){
+    $showmassage=true;
+ }
+ else{
+    echo "your data does not inserted succefully";
+ }
 }
 
 ?>
@@ -82,9 +91,9 @@ if(isset($_POST['submit'])){
                 <p class="login-box-msg ">Add a new Product</p>
 
                 <div class="container">
-                    <form class="row">
+                    <form action="add_product.php" method="post" enctype='multipart/form-data' class="row">
                         <div class="col-md-12 mb-3">
-                            <label for="product_name" class="form-label">Product name</label>
+                            <label for="product_name"  class="form-label">Product name</label>
                             <input type="text" class="form-control" name="product_name" id="product_name"
                                 aria-describedby="emailHelp">
                         </div>
@@ -98,7 +107,7 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleFormControlTextarea1">Proguct Discription</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="product_disc" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="col-md-12 mb-3">
                             <select class="form-control" name="status" id="">
@@ -108,7 +117,7 @@ if(isset($_POST['submit'])){
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <select name="category" class="form-control" id="categories-dropdown">
+                            <select name="select_cat_id" class="form-control" id="categories-dropdown">
                                 <option>select categories</option>
                                 <?php
                                      $res=mysqli_query($conn, "SELECT id,categories FROM category order by id ASC");
@@ -120,12 +129,12 @@ if(isset($_POST['submit'])){
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="col-md-12 form-control" id="subcategory-dropdown">
+                            <select name="select_subcat_id" class="col-md-12 form-control" id="subcategory-dropdown">
                                 <option value="">select subcategories</option>
                             </select>
                         </div>
                         <div class="text-center col-md-12 my-4">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

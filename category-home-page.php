@@ -1,8 +1,16 @@
-
-
-
-       
-
+<?php 
+include 'admin_panel/partials/_dbconnect.php';
+    $query = "SELECT `category_id`, `subcategory_id` FROM product ORDER BY id DESC LIMIT 1";
+    $result = mysqli_query($conn, $query);
+    if($result){
+      $row =mysqli_fetch_assoc($result);
+      $cid = $row['category_id'];
+      $sid = $row['subcategory_id'];
+    }else{                                                                                                              
+        $cid = 0;
+        $sid = 0;
+    }
+?>
 
 <div class="main-category container text-bg-light p-3 ">
         <div class="container">
@@ -10,7 +18,7 @@
         </div>
         <div class="d-flex container justify-content-around">
             <div class="category-item text-center">
-                <a href="allproduct.php?categoryid=1&subcategoryid=1" class="text-decoration-none" style="color:black">
+                <a href="allproduct.php?categoryid=<?php echo $cid ?> & subcategoryid=<?php echo $sid ?>" class="text-decoration-none" style="color:black">
                     <img src="images/mens-cate.jpg" alt="">
                     <p>mens</p>
                 </a>
