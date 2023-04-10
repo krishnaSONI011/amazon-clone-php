@@ -32,7 +32,7 @@ require 'partials/_dbconnect.php';
 
 <div class="container">
 
-    <table id='myTable'>
+    <table class='myTable'>
         <thead>
           <tr>
              <th>s.no</th>
@@ -57,14 +57,19 @@ require 'partials/_dbconnect.php';
              $num;
 
             while($row =mysqli_fetch_array($result)){?>
-                 <tr>
-                    <td><?php echo ?></td>
-                 </tr>
-                 <?php $num=$num+1;?>
-          <?php  }?>
+           <tr>
+            <td><?php echo $num?></td>
+            <td><?php echo $row['email']?></td>
+            <td><?php echo $row['firstname']?></td>
+            <td><?php echo $row['lastname']?></td>
+            <td><?php echo $row['mobile']?></td>
+            <td><?php echo $row['password']?></td>
+           </tr>
+             <?php $num=$num+1;  }?>
+           
           <?php }?>
            
-           ?>  
+         
         </tbody>
     </table>
 
@@ -74,7 +79,7 @@ require 'partials/_dbconnect.php';
 
     <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
-  let table = new DataTable('#myTable');
+  let table = new DataTable('.myTable');
 </script>
 
 
