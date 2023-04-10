@@ -3,7 +3,7 @@ include "admin_panel/partials/_dbconnect.php";
 $category_id =$_GET['categoryid'];
 $subcategory_id=$_GET['subcategoryid'];
 
-$sql ="SELECT * FROM `product` WHERE `categories_id`= $category_id AND `subcategories_id` = $subcategory_id";
+$sql ="SELECT * FROM `product` WHERE `category_id`= $category_id AND `subcategory_id` = $subcategory_id";
 $result=mysqli_query($conn,$sql);
 
 $num =mysqli_num_rows($result);

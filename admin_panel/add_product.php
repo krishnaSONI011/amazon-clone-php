@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
  $select_cat_id=$_POST['select_cat_id'];
  $select_subcat_id=$_POST['select_subcat_id'];
 
- $sql="INSERT INTO `product`( `name`, `description`, `image`, `price`, `categories_id`, `subcategories_id`, `status`) VALUES ('$product_name','$product_disc','$img_des','$product_price','$select_cat_id','$select_subcat_id','$status')";
+ $sql="INSERT INTO `product`( `name`, `description`, `image`, `price`, `category_id`, `subcategory_id`, `status`) VALUES ('$product_name','$product_disc','$img_des','$product_price','$select_cat_id','$select_subcat_id','$status')";
 
  $result=mysqli_query($conn,$sql);
  if($result){

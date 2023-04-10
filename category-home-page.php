@@ -1,11 +1,11 @@
 <?php 
 include 'admin_panel/partials/_dbconnect.php';
-    $query = "SELECT `categories_id`, `subcategories_id` FROM product ORDER BY id DESC LIMIT 1";
+    $query = "SELECT `category_id`, `subcategory_id` FROM product ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($conn, $query);
     if($result){
       $row =mysqli_fetch_assoc($result);
-      $cid = $row['categories_id'];
-      $sid = $row['subcategories_id'];
+      $cid = $row['category_id'];
+      $sid = $row['subcategory_id'];
     }else{                                                                                                              
         $cid = 0;
         $sid = 0;
