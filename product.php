@@ -100,7 +100,7 @@ if(!isset($_GET['status'])){
                             </a>
                            <?php }
                                   } ?>
-                            <button class="btn btn-orange w-100 my-3 border-r">Buy Now</button>
+                            <a href="checkout_page.php?id=<?php echo $_SESSION['user_id']?>&product_id=<?php echo $id ?>&page_id=product"><button class="btn btn-orange w-100 my-3 border-r">Buy Now</button></a>
                         </div>
                     </div>
                 </div>

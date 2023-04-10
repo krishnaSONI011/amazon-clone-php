@@ -69,7 +69,7 @@
             <div class="cart white-border">
                 <?php if(isset($_SESSION['login'])){ 
 ?>
-                <a href="cart.php" class="text-decoration-none text-light">
+                <a href="cart.php?id=<?php echo $_SESSION['user_id'] ?>" class="text-decoration-none text-light">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor"
                             class="bi bi-cart" viewBox="0 0 16 16">

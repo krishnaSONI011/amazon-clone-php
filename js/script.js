@@ -31,3 +31,5 @@ console.log("aas")
 log_out.onclick=()=>{
   window.location.href="/backend/logout.php";
 }
+// cart- page
+document.querySelectorAll
