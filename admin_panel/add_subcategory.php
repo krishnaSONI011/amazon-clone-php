@@ -56,8 +56,12 @@ if(isset($_POST['submit'])){
  
     $subcatname=$_POST['subcatname'];
     $parentid=$_POST['select'];
-
-    $sql="INSERT INTO `sub-category`(`name`, `parent_cat_id`) VALUES ('$subcatname','$parentid')";
+    $img_loc=$_FILES['subcatimage']['tmp_name'];
+    $img_name=$_FILES['subcatimage']['name'];
+    $img_des = "admin_panel/uploaded_Images/subimage".$img_name;
+    move_uploaded_file($img_loc, 'uploaded_Images/subimage' .$img_name);
+   
+    $sql="INSERT INTO `sub-category`(`name`,`subimage`, `parent_cat_id`) VALUES ('$subcatname','$img_des','$parentid')";
     $result=mysqli_query($conn,$sql);
     if($result){
         $showmassage=true;
@@ -89,8 +93,8 @@ if(isset($_POST['submit'])){
             </div>
             <div class="card-body">
 
-                <form method="POST">
-                    <select name="select" class="form-control" id="select">
+                <form method="POST" enctype='multipart/form-data' >
+                    <select name="select" class="form-control" id="select" required>
                         <option>select parent categories</option>
                         <?php
                             $res = mysqli_query($conn, "SELECT id, categories FROM category order by categories desc");
@@ -103,7 +107,15 @@ if(isset($_POST['submit'])){
                     </select>
 
                     <div class="input-group mb-3 my-4">
-                        <input type="text" class="form-control" name="subcatname" placeholder="Sub Categories "
+                        <input type="text" class="form-control" name="subcatname" placeholder="Sub Categories name "
+                            required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-status"></span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3 my-4">
+                        <input type="file" class="form-control" name="subcatimage" accept="image/*" placeholder="Sub Categories "
                             required>
                         <div class="input-group-append">
                             <div class="input-group-text">
