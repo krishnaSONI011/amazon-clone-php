@@ -1,7 +1,7 @@
 <?php
-$server = "localhost";
+$server = "localhost:3307";
 $username = "root";
-$password = "";
+$password = 1598;
 $database = "amazon2";
 
 $conn = mysqli_connect($server, $username, $password, $database);

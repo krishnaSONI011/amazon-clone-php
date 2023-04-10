@@ -49,10 +49,10 @@ $num =mysqli_num_rows($result);
 
                 <div class="cart-body ">
                     <div class="d-flex cart">
-                        <div class="cart-img text-center ">
+                        <div class="cart-img text-center w-100">
                             <img src="<?php echo $row2['image'] ?>" alt="">
                         </div>
-                        <div class="" style="width:50%">
+                        <div class="w-100" >
                             <p><strong><?php echo $row2['name']?></strong> <?php echo $row2['description']?></p>
                             <div class="qty">
                                 <input type="number" style="width:14%" placeholder="QTY"

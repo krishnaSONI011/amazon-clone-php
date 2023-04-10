@@ -1,120 +1,50 @@
 <?php 
-include 'admin_panel/partials/_dbconnect.php';
-    $query = "SELECT `category_id`, `subcategory_id` FROM product ORDER BY id DESC LIMIT 1";
-    $result = mysqli_query($conn, $query);
-    if($result){
-      $row =mysqli_fetch_assoc($result);
-      $cid = $row['category_id'];
-      $sid = $row['subcategory_id'];
-    }else{                                                                                                              
-        $cid = 0;
-        $sid = 0;
-    }
+// include 'admin_panel/partials/_dbconnect.php';
+//     $query = "SELECT `category_id`, `subcategory_id` FROM product ORDER BY id DESC LIMIT 1";
+//     $result = mysqli_query($conn, $query);
+//     if($result){
+//       $row =mysqli_fetch_assoc($result);
+//       $cid = $row['category_id'];
+//       $sid = $row['subcategory_id'];
+//     }else{                                                                                                              
+//         $cid = 0;
+//         $sid = 0;
+//     }
+include "backend/db_connect.php";
+$sql ="SELECT * FROM `category` ";
+$result =mysqli_query($conn,$sql);
+$num=mysqli_num_rows($result);
+if( $num >0 ){
+   
+    while($row =mysqli_fetch_array($result)){
+        $cat_id=$row['id'];
+        $sql2 ="SELECT * FROM `sub-category` WHERE `parent_cat_id`='$cat_id'";
+        $result2 =mysqli_query($conn,$sql2);
+        
 ?>
 
 <div class="main-category container text-bg-light p-3 ">
-        <div class="container">
-            <h4>Fashion</h4>
-        </div>
-        <div class="d-flex container justify-content-around">
-            <div class="category-item text-center">
-                <a href="allproduct.php?categoryid=<?php echo $cid ?> & subcategoryid=<?php echo $sid ?>" class="text-decoration-none" style="color:black">
-                    <img src="images/mens-cate.jpg" alt="">
-                    <p>mens</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/woman-cate.jpg" alt="" >
-                    <p>Woman</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/kids-cate.jpg" alt="">
-                    <p>kids</p>
-                </a>
-            </div>
-        </div>
+    <div class="container">
+        <h4><?php echo $row['categories'] ?></h4>
     </div>
-
-
-    <div class="main-category container text-bg-light p-3 my-4">
-        <div class="container">
-            <h4>Electronic</h4>
+    <div class="d-flex container justify-content-evenly">
+        <?php while($row2=mysqli_fetch_array($result2)){ ?>
+        <div class="category-item text-center">
+                <a href="allproduct.php?categoryid=<?php echo $row['id'] ?> & subcategoryid=<?php echo $row2['id'] ?>" class="text-decoration-none" style="color:black">
+                    <img src="<?php echo $row2['subimage']?>" alt="">
+                    <p><?php echo $row2['name'] ?></p>
+                </a>
+            </div>
+            
+            
+            <?php }  ?>
         </div>
-        <div class="d-flex container justify-content-around">
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/mobile-cate.jpg" alt="">
-                    <p>Mobile</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/laptop-cate.jpg" alt="" >
-                    <p>laptop</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/tabs-cate.jpg" alt="">
-                    <p>tablets</p>
-                </a>
-            </div>
-        </div>
+
+    
     </div>
-
-
-    <div class="main-category container text-bg-light p-3 my-4">
-        <div class="container">
-            <h4>Home appliances</h4>
-        </div>
-        <div class="d-flex container justify-content-around">
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/mens-cate.jpg" alt="">
-                    <p>mens</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/woman-cate.jpg" alt="" >
-                    <p>Woman</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/kids-cate.jpg" alt="">
-                    <p>kids</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="main-category container text-bg-light p-3 ">
-        <div class="container">
-            <h4>Fitness</h4>
-        </div>
-        <div class="d-flex container justify-content-around">
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/mens-cate.jpg" alt="">
-                    <p>mens</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/woman-cate.jpg" alt="" >
-                    <p>Woman</p>
-                </a>
-            </div>
-            <div class="category-item text-center">
-                <a href="#" class="text-decoration-none" style="color:black">
-                    <img src="images/kids-cate.jpg" alt="">
-                    <p>kids</p>
-                </a>
-            </div>
-        </div>
-    </div>
+       
+<?php  }
+ }  ?>
+    
+         </div>
+    <!-- </div> -->
