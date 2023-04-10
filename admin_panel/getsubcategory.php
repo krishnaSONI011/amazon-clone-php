@@ -8,7 +8,7 @@ $result=mysqli_query($conn,"SELECT * FROM `sub-category` WHERE `parent_cat_id` L
 while($row=mysqli_fetch_array($result)){   
 
     ?>
-    <option value="<?php $row['id']?>"><?php echo $row['name']?></option>
+    <option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
 <?php
 }
 ?>
