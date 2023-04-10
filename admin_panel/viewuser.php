@@ -50,15 +50,19 @@ require 'partials/_dbconnect.php';
            $sql="SELECT * FROM `user`";
            $result=mysqli_query($conn,$sql);
          
-        $num = mysqli_num_rows($result);
+          $num = mysqli_num_rows($result);
         $nums=0;
         
         if($num>0){
              $num;
 
-            while($row =mysqli_fetch_array($result)){
-
-            }}
+            while($row =mysqli_fetch_array($result)){?>
+                 <tr>
+                    <td><?php echo ?></td>
+                 </tr>
+                 <?php $num=$num+1;?>
+          <?php  }?>
+          <?php }?>
            
            ?>  
         </tbody>
