@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){   //agara user login nahi ha || login false ha 
+  header("location: login.php");                                     //login page pa jao
+  exit;
+}
+?>
+<?php
 include 'includes/_header.php';
 include 'includes/_navbar.php';
 include 'includes/_sidebar.php';
@@ -36,18 +44,37 @@ require 'partials/_dbconnect.php';
         <thead>
           <tr>
              <th>s.no</th>
+             <th>username</th>
              <th>email</th>
-             <th>first name</th>
-             <th>last name</th>
              <th>mobile</th>
-             <th>password</th>
-
+             <th>product_name</th>
+             <th>price</th>
+             <th>add line1</th> 
+             <th>add line2</th>
+             <th>city</th>
+             <th>landmark</th>
+             <th>state</th>
+             <th>pincode</th>
+             <th>method</th>
+             <th>image</th>
           </tr>
 
         </thead>
         <tbody>
            <?php
-           $sql="SELECT * FROM `user`";
+           $sql="SELECT 
+           user.firstname, user.lastname, user.email, user.mobile, 
+           product.name, product.price, product.image,
+           address.address_line1, address.address_line2, address.city, address.landmark, address.state, address.pincode, 
+           orders.method
+       FROM 
+           user, product, address, orders
+       WHERE 
+           user.id = orders.user_id 
+           AND product.id = orders.product_id 
+           AND user.id = address.user_id;
+       ";
+
            $result=mysqli_query($conn,$sql);
          
           $num = mysqli_num_rows($result);
@@ -59,11 +86,20 @@ require 'partials/_dbconnect.php';
             while($row =mysqli_fetch_array($result)){?>
            <tr>
             <td><?php echo $n?></td>
-            <td><?php echo $row['email']?></td>
             <td><?php echo $row['firstname']?></td>
-            <td><?php echo $row['lastname']?></td>
+            <td><?php echo $row['email']?></td>
             <td><?php echo $row['mobile']?></td>
-            <td><?php echo $row['password']?></td>
+            <td><?php echo $row['name']?></td>
+            <td><?php echo $row['price']?></td>
+            <td><?php echo $row['address_line1']?></td>
+            <td><?php echo $row['address_line2']?></td>
+            <td><?php echo $row['city']?></td>
+            <td><?php echo $row['landmark']?></td>
+            <td><?php echo $row['state']?></td>
+            <td><?php echo $row['pincode']?></td>
+            <td><?php echo $row['method']?></td>
+            <td><?php echo $row['image']?></td>
+           
             <?php $n=$n+1;  }?>
            </tr>
            
