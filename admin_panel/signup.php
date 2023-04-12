@@ -86,17 +86,20 @@ if($showAlert){
 
     <div class="form-group ">
     <label for="exampleInputEmail1">Name</label>
-    <input type="name" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name">
+    <input type="name" name="name" class="form-control"  id="name" onchange=checkfirstname()  aria-describedby="emailHelp" placeholder="Enter Name" required >
+    <div id="fname"> </div>
   </div>
 
   <div class="form-group">
     <label for="email">Email Address</label>
-    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" required onchange=checkvalidemail() required>
+    <div id="emailerror"></div>
   </div>
 
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password" onchange=ckeckstrongpassword() required>
+    <div id="passworderror"></div>
   </div>
 
   
@@ -111,5 +114,55 @@ if($showAlert){
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function checkfirstname() {
+    let name = document.getElementById("name");
+    let name_value = name.value;
+    let regex = /^[a-zA-Z\s]+$/;
+    if (!regex.test(name_value)) {
+        // alert("Invalid name! Only letters and spaces are allowed.");
+        let fname = document.getElementById('fname').innerHTML =
+            "<p style='color:red'>Name only allow to enter letter or spaces</p>";
+        name.value = "";
+
+    }
+
+    if (regex.test(name_value)) {
+        let fname = document.getElementById('name').innerHTML = "";
+
+    }
+}
+
+function checkvalidemail() {
+  let email = document.getElementById("email");
+    let email_value = email.value;
+    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
+        let emailerror = document.getElementById("emailerror").innerHTML =
+            "<p style ='color:red'>please enter a valid email</p>";
+        email.value = "";
+    } else {
+        let emailerror = document.getElementById("emailerror").innerHTML = "";
+    }
+}
+
+function ckeckstrongpassword(){
+     let password = document.getElementById("password");
+     let password_value =password.value;
+
+     if(password_value.length < 8){
+      let passworderror =document.getElementById("passworderror").innerHTML =
+      "<p style ='color:red'>password must be atleast 8 charecter</p>"
+      password.value="";
+     }else if(password_value.length > 15){
+      let passworderror =document.getElementById("passworderror").innerHTML =
+      "<p style ='color:red'>password must not exceed 15 cherecter</p>"
+      password.value="";
+     }else{
+      let passworderror = document.getElementById("passworderror").innerHTML = "";
+     }
+}
+
+    </script>
   </body>
 </html>
