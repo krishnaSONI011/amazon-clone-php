@@ -154,6 +154,8 @@ function checkstrongpassword(){
     let passworderror = document.getElementById("passworderror").innerHTML =
      "<p style ='color:red'>password must exceet 15 charecter</p>";
      password.value = "";
+   }else{
+    let passworderror = document.getElementById("passworderror").innerHTML ="";
    }
 }
     </script>
