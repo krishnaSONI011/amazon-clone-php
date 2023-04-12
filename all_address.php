@@ -69,8 +69,9 @@ $num =mysqli_num_rows($reslut);
                         <p><?php echo $row['address_line1'].",";echo $row['address_line2'].",";echo $row['city']." ";echo $row['pincode']." ";echo $row['state'] ?>
                         </p>
                         <p>phone number:<?php echo $row['mobile'] ?></p>
-                        <div><a href="address_remove.php?id=<?php echo $row['id'] ?>" class="text-decoration-none" style="color:#007185">Remove</a> |
-                            <a href="address_edit.php?id=<?php echo $row['id'] ?> " class="text-decoration-none" style="color:#007185">Edit</a></div>
+                        <div> <a href="address_edit.php?id=<?php echo $row['id'] ?> " class="text-decoration-none text-success" style="color:#007185">Edit</a> |
+                              <a href="address_remove.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-danger" style="color:#007185">Remove</a></div>
+                           
                     </div>
                 </div><!-- col-->
                 <?php  }

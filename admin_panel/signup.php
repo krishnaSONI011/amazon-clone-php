@@ -51,6 +51,13 @@ else{
         max-width: 355px;
         border-radius: 5px;
     }
+    html{
+      background-color: rgb(188, 188, 188);
+    }
+    .foot{
+      background-color: rgb(188, 188, 188);
+    }
+  </style>
    
   </style>
   <body>
@@ -76,7 +83,8 @@ if($showAlert){
 
 
       <!-- ==========================================================FORM======================================================== -->
-  <div class="text-center img mt-4"> <img src="image/sc-unified._CB485930462_.png" alt="image" width="180px">  </div>
+      <div class ="white pt-5 pb-4">
+  <div class="text-center img"> <img src="image/sc-unified._CB485930462_.png" alt="image" width="180px">  </div>
 
     <div class="container mt-3 border main-con">
 
@@ -104,8 +112,13 @@ if($showAlert){
 
 </form>
 </div>
+</div>
     <!-- ==========================================================FORM END======================================================== -->
 
+    <div class="text-center my-3">
+    <p class="foot">© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+ </div>
+ 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

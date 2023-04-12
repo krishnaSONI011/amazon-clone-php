@@ -1,3 +1,4 @@
+<!-- =============================================================Adress update Query Start========================================================================== -->
 <?php
 include 'admin_panel/partials/_dbconnect.php';
 if(isset($_POST['update'])){
@@ -22,6 +23,7 @@ if(isset($_POST['update'])){
 }
 
 ?>
+<!-- =============================================================Adress update Query Ends========================================================================== -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +37,15 @@ if(isset($_POST['update'])){
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
+<style>
+    body{
+        background-color: white;
+    }
+</style>
 <body>
+    <!-- =====================================================Navbar========================================================================== -->
     <?php include "navbar.php"?>
-
+ <!-- =====================================================Getting Id========================================================================== -->
 <?php 
     include 'admin_panel/partials/_dbconnect.php';
     $id = $_GET['id'];
@@ -51,7 +58,7 @@ if(isset($_POST['update'])){
 
     <div class="white">
         <div class="container">
-            <div class="container w-50">
+            <div class="container px-4 border mt-3 w-50">
                 <div class="p-4">
                     <h2>Add a new address</h2>
                 </div>
@@ -99,7 +106,7 @@ if(isset($_POST['update'])){
                         <input type="hidden" value="<?php echo $data['id'] ?>" id="id" value="<?php echo $data['id'] ?>"  name="id">
                         <!--row -->
                     </div>
-                    <input type="submit" name="update" value="Update Address" class="btn btn-warning">
+                    <input type="submit" name="update" value="Update Address" class="btn btn-warning mb-3">
                 </form>
             </div><!-- container w-50 -->
         </div><!-- container -->
