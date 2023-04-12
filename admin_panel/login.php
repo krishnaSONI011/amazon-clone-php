@@ -99,12 +99,15 @@ include 'partials/_dbconnect.php';
  
   <div class="form-group">
     <label for="email">Email Address</label>
-    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" onchange=checkvalidemail() required>
+    <div id="emailerror"></div>
+
   </div>
 
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password" onchange=checkstrongpassword() required>
+    <div id="passworderror"></div>
   </div>
 
   <div class="form-check my-2">
@@ -126,5 +129,33 @@ include 'partials/_dbconnect.php';
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function checkvalidemail() {
+    let email = document.getElementById("email");
+    let email_value = email.value;
+    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
+        let emailerror = document.getElementById("emailerror").innerHTML =
+            "<p style ='color:red'>please enter a valid email</p>";
+        email.value = "";
+    } else {
+        let emailerror = document.getElementById("emailerror").innerHTML = "";
+    }
+}
+
+function checkstrongpassword(){
+   let password = document.getElementById("password");
+   let password_value = password.value;
+   if(password_value.length < 8){
+     let passworderror = document.getElementById("passworderror").innerHTML =
+     "<p style ='color:red'>password must be atleast 8 charecter</p>";
+     password.value = "";
+   }else if(password_value.length > 15){
+    let passworderror = document.getElementById("passworderror").innerHTML =
+     "<p style ='color:red'>password must exceet 15 charecter</p>";
+     password.value = "";
+   }
+}
+    </script>
   </body>
 </html>
