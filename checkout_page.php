@@ -44,6 +44,7 @@ $num_address =mysqli_num_rows($adress);
             </div>
         </div>
     </header>
+    <form action="backend/order.php?id=<?php echo $user_id?>" method="POST">
     <div class="container">
         <div class="row p-4">
             <div class="col-md-9">
@@ -58,7 +59,7 @@ $num_address =mysqli_num_rows($adress);
                             ?>
                         <div class="address-body m-2">
                             <div class="body d-flex width ">
-                                <input type="radio" value="1" id="<?php echo $forid?>" class="radio" name="radio">
+                                <input type="radio" value="<?php echo $row['id']?>" id="<?php echo $forid?>" class="radio" name="radio">
                                 <label for="<?php echo $forid?>"
                                     class="label"><strong><?php echo $row['name'] ?></strong>
                                     <?php echo $row['address_line1'].","; echo $row['address_line2'].","; echo $row['city']." "; echo $row['state']." "; echo $row['pincode']." "?>
@@ -89,7 +90,7 @@ $num_address =mysqli_num_rows($adress);
                     <h4>2. Payment Method </h4>
                     <hr>
                     <div class="payment-body">
-                        <input type="radio" name="payment" id="cash">
+                        <input type="radio" name="payment" id="cash" value="COD">
                         <label for="cash">Cash on delivery</label>
                     </div>
                     <hr>
@@ -116,6 +117,8 @@ $num_address =mysqli_num_rows($adress);
                             </div>
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
+                                <input type="text" name="product[]" value="<?php echo $pro_id ?>">
+
                                 </p>
                             </div>
                         </div>
@@ -141,6 +144,7 @@ $num_address =mysqli_num_rows($adress);
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
                                 </p>
+                                <input type="hidden" name="product[]" vlaue="<?php echo $row3['id'] ?>">
                             </div>
                         </div>
                     </div>
@@ -162,13 +166,14 @@ $num_address =mysqli_num_rows($adress);
                     <hr>
                     <p id="">Oreder Total: <?php  echo $price ?></p>
                     <hr>
-                    <button class="btn btn-warning">Proceed to buy</button>
+                    <button type="submit" class="btn btn-warning">Proceed to buy</button>
                 </div>
             </div>
         </div>
         <!-- row -->
     </div>
     <!-- container -->
+                    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>

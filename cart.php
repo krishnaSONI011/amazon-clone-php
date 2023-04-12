@@ -56,8 +56,8 @@ $num =mysqli_num_rows($result);
                             <p><strong><?php echo $row2['name']?></strong> <?php echo $row2['description']?></p>
                             <div class="qty">
                                 <input type="number" style="width:14%" placeholder="QTY"
-                                    value="<?php echo $row['quantity']?>" class="qut">
-                                <a href="backend/delete_cart.php?prod_id=<?php echo $pro_id?>& user_id=<?php echo $id?>" class="btn btn-danger text-white">Delete</a>
+                                    value="<?php echo $row['quantity']?>" class="qut"> |
+                                <a href="backend/delete_cart.php?prod_id=<?php echo $pro_id?>& user_id=<?php echo $id?>" class="text-decoration-none">Delete</a>
                             </div>
                         </div>
                         <div class="price text-center" style="width:20%">
