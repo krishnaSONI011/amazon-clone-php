@@ -37,7 +37,12 @@ require 'partials/_dbconnect.php';
     <!-- /.content-header -->
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-
+<style>
+    .dataTables_wrapper {
+    position: relative;
+    margin-left: -70px;
+}
+</style>
 <div class="container">
 
     <table class='myTable'>
@@ -49,8 +54,8 @@ require 'partials/_dbconnect.php';
              <th>mobile</th>
              <th>product_name</th>
              <th>price</th>
-             <th>add line1</th> 
-             <th>add line2</th>
+             <th>add line</th> 
+             
              <th>city</th>
              <th>landmark</th>
              <th>state</th>
@@ -86,19 +91,19 @@ require 'partials/_dbconnect.php';
             while($row =mysqli_fetch_array($result)){?>
            <tr>
             <td><?php echo $n?></td>
-            <td><?php echo $row['firstname']?></td>
+            <td> <?php echo $row['firstname'].' '. $row['lastname'];?></td>
             <td><?php echo $row['email']?></td>
             <td><?php echo $row['mobile']?></td>
             <td><?php echo $row['name']?></td>
             <td><?php echo $row['price']?></td>
-            <td><?php echo $row['address_line1']?></td>
-            <td><?php echo $row['address_line2']?></td>
+            <td><?php echo $row['address_line1'].' '.$row['address_line2'];?></td>
+           
             <td><?php echo $row['city']?></td>
             <td><?php echo $row['landmark']?></td>
             <td><?php echo $row['state']?></td>
             <td><?php echo $row['pincode']?></td>
             <td><?php echo $row['method']?></td>
-            <td><?php echo $row['image']?></td>
+            <td> <img src="../<?php echo $row['image'] ?>" alt="" width ="100px"></td>
            
             <?php $n=$n+1;  }?>
            </tr>
