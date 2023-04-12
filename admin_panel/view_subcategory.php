@@ -46,7 +46,7 @@ require 'partials/_dbconnect.php';
             </thead>
             <tbody>
                 <?php
-                   $sql = "SELECT category.categories, `sub-category`.id, `sub-category`.name, `sub-category`.subimage, `sub-category`.parent_cat_id
+                   $sql = "SELECT category.categories, `sub-category`.id, `sub-category`.`name`, `sub-category`.subimage, `sub-category`.parent_cat_id
                    FROM category
                    JOIN `sub-category`
                    ON category.id = `sub-category`.parent_cat_id";
@@ -61,7 +61,7 @@ require 'partials/_dbconnect.php';
                       $num;
 
 
-  while($row =mysqli_fetch_array($result)){?>
+               while($row =mysqli_fetch_array($result)){?>
                 <tr>
                     <td><?php echo $row['id'] ?></td> 
                     <td><?php echo $row['categories'] ?></td>
