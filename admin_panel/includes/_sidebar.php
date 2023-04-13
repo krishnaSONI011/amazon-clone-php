@@ -165,7 +165,7 @@
 
                         
                         <li class="nav-item">
-                            <a href="your_orders.php" class="nav-link">
+                            <a href="order_view.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Orders</p>
                             </a>
