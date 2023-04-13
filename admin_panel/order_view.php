@@ -36,37 +36,37 @@ require 'partials/_dbconnect.php';
     </div>
     <!-- /.content-header -->
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-<link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-<style>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <style>
     .dataTables_wrapper {
-    position: relative;
-    margin-left: -70px;
-}
-</style>
-<div class="container">
+        position: relative;
+        margin-left: -70px;
+    }
+    </style>
+    <div class="container">
 
-    <table class='myTable'>
-        <thead>
-          <tr>
-             <th>s.no</th>
-             <th>username</th>
-             <th>email</th>
-             <th>mobile</th>
-             <th>product_name</th>
-             <th>price</th>
-             <th>add line</th> 
-             
-             <th>city</th>
-             <th>landmark</th>
-             <th>state</th>
-             <th>pincode</th>
-             <th>method</th>
-             <th>image</th>
-          </tr>
+        <table class='myTable'>
+            <thead>
+                <tr>
+                    <th>s.no</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>mobile</th>
+                    <th>product_name</th>
+                    <th>price</th>
+                    <th>add line</th>
 
-        </thead>
-        <tbody>
-           <?php
+                    <th>city</th>
+                    <th>landmark</th>
+                    <th>state</th>
+                    <th>pincode</th>
+                    <th>method</th>
+                    <th>image</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <?php
            $sql="SELECT 
            user.firstname, user.lastname, user.email, user.mobile, 
            product.name, product.price, product.image,
@@ -89,40 +89,40 @@ require 'partials/_dbconnect.php';
              $n=1;
 
             while($row =mysqli_fetch_array($result)){?>
-           <tr>
-            <td><?php echo $n?></td>
-            <td> <?php echo $row['firstname'].' '. $row['lastname'];?></td>
-            <td><?php echo $row['email']?></td>
-            <td><?php echo $row['mobile']?></td>
-            <td><?php echo $row['name']?></td>
-            <td><?php echo $row['price']?></td>
-            <td><?php echo $row['address_line1'].' '.$row['address_line2'];?></td>
-           
-            <td><?php echo $row['city']?></td>
-            <td><?php echo $row['landmark']?></td>
-            <td><?php echo $row['state']?></td>
-            <td><?php echo $row['pincode']?></td>
-            <td><?php echo $row['method']?></td>
-            <td> <img src="../<?php echo $row['image'] ?>" alt="" width ="100px"></td>
-           
-            <?php $n=$n+1;  }?>
-           </tr>
-           
-           
-          <?php }?>
-           
-         
-        </tbody>
-    </table>
+                <tr>
+                    <td><?php echo $n?></td>
+                    <td> <?php echo $row['firstname'].' '. $row['lastname'];?></td>
+                    <td><?php echo $row['email']?></td>
+                    <td><?php echo $row['mobile']?></td>
+                    <td><?php echo $row['name']?></td>
+                    <td><?php echo $row['price']?></td>
+                    <td><?php echo $row['address_line1'].' '.$row['address_line2'];?></td>
 
-        </div>
+                    <td><?php echo $row['city']?></td>
+                    <td><?php echo $row['landmark']?></td>
+                    <td><?php echo $row['state']?></td>
+                    <td><?php echo $row['pincode']?></td>
+                    <td><?php echo $row['method']?></td>
+                    <td> <img src="../<?php echo $row['image'] ?>" alt="" width="100px"></td>
+
+                    <?php $n=$n+1;  }?>
+                </tr>
+
+
+                <?php }?>
+
+
+            </tbody>
+        </table>
+
+    </div>
 
 
 
     <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script>
-  let table = new DataTable('.myTable');
-</script>
+    <script>
+    let table = new DataTable('.myTable');
+    </script>
 
 
 
