@@ -58,33 +58,38 @@ body {
         </div>
 
         <?php
-        include "admin_panel/partials/_dbconnect.php";
-       
-
-        $sql = "SELECT 
-        user.firstname, user.lastname, user.email, user.mobile, 
-        product.name AS product_name, product.description, product.price, product.image, 
-        address.`name` AS address_name, address.address_line1, address.address_line2, address.city, address.landmark, address.state, address.pincode, 
-        orders.id, orders.method 
         
-        FROM orders
-        INNER JOIN user ON orders.user_id = user.id 
-        INNER JOIN product ON orders.product_id = product.id
-        INNER JOIN address ON orders.address_id = address.id";
+                include "backend/db_connect.php";
+                $user_id =$_SESSION['user_id'];
+                $sql1="SELECT * FROM `user` WHERE `id`='$user_id'";
+                $users =mysqli_query($conn,$sql1);
 
+                $row_user=mysqli_fetch_array($users);
         // print_r($sql);exit;
 
+             $sql2="SELECT * FROM `orders` WHERE `user_id`=$user_id";
+             $order =mysqli_query($conn,$sql2);
+             $num_order =mysqli_num_rows($order);
+
+             if($num_order>0){
+                while($row_order=mysqli_fetch_array($order)){
+                    $product_id =$row_order['product_id'];
+                    $address_id=$row_order['address_id'];
+                $sql3="SELECT * FROM `product` WHERE `id`=$product_id";
+                $product =mysqli_query($conn,$sql3);
+                $row_product =mysqli_fetch_array($product);
+                $sql4="SELECT * FROM `address`WHERE `id`=$address_id";
+                $address=mysqli_query($conn,$sql4);
+                 $row_address=mysqli_fetch_array($address);   
+
+                    
+             
+                    
 
 
-
-        $result=mysqli_query($conn,$sql);
-        print_r($result);exit;
-
-      
-       $row = mysqli_num_rows($result);
-       if($row>0){
+       
           
-         while($row =mysqli_fetch_array($result)){?>
+        ?>
         
         <div class="container main-con my-5">
             <div class="row box head_box py-2">
@@ -92,10 +97,10 @@ body {
                     <h6> ORDER PLACED<br>12th April 2023</h6>
                 </div>
                 <div class="col-md-2">
-                    <h6> TOTAL<br><?php echo $row['price'];?></h6>
+                    <h6> TOTAL<br><?php echo $row_product['price'];?></h6>
                 </div>
                 <div class="col-md-6">
-                    <h6>SHIP TO<br><?php echo $row['address_name'];?></h6>
+                    <h6>SHIP TO<br><?php echo $row_address['name'].","; echo $row_address['address_line1'].",";echo $row_address['address_line2'].",";echo $row_address['city']." "; echo $row_address['state']." ";echo $row_address['pincode'];  ?></h6>
                 </div>
                 <div class="col-md-2">
                     <h6>View Order Details</h6>
@@ -108,22 +113,26 @@ body {
             </div>
 
             <div class="row box mb-4">
-                <div class="col-md-2 box"> <img src="<?php echo $row['image']; ?>" alt="" width="200px"> </div>
+                <div class="col-md-2 box"> <img src="<?php echo $row_product['image']; ?>" alt="" width="200px"> </div>
                 <div class="col-md-7 box">
-                    <p class="my-5"><?php echo $row['product_name'];?> <br>
-                    <?php echo $row['description'];?></p>
+                    <p class="my-5"><?php echo $row_product['name'];?> <br>
+                    <?php echo $row_product['description'];?></p>
                 </div>
                 <div class="col-md-2 box mt-3"> <a href="track_orders.php"> <button type="button"
                             class="btn btn-warning mb-3 col-md-12">Track package</button> </a> <br>
-                            <a href="cancel_orders.php?id=<?php echo $row['id'] ?> "> <button type="button" class="btn btn-light col-md-12">Cancel items</button>
+                            <a href="cancel_orders.php?id=<?php echo $row_product['id'] ?> "> <button type="button" class="btn btn-light col-md-12">Cancel items</button>
                     </a>
                 </div>
             </div>
-
+    
         </div>
 
 <?php
-         }}
+         } // while for orders
+        }
+        else{
+            echo"<h1> you not order yet</h1>";
+        }
 ?>
 
     </div> <!-- -------<<<< Main div (dont delete)----------- -->
