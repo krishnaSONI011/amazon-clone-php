@@ -59,18 +59,23 @@ body {
 
         <?php
         include "admin_panel/partials/_dbconnect.php";
-        $sql="SELECT 
+       
+
+        $sql = "SELECT 
         user.firstname, user.lastname, user.email, user.mobile, 
         product.name AS product_name, product.description, product.price, product.image, 
         address.`name` AS address_name, address.address_line1, address.address_line2, address.city, address.landmark, address.state, address.pincode, 
-        orders.method
-        FROM 
-            user, product, address, orders
-        WHERE 
-            user.id = orders.user_id 
-            AND product.id = orders.product_id 
-            AND user.id = address.user_id;
-        ";
+        orders.id, orders.method 
+        
+        FROM orders
+        LEFT JOIN user ON orders.user_id = user.id 
+        INNER JOIN product ON orders.product_id = product.id
+        INNER JOIN `address` ON orders.address_id = address.id";
+
+        
+
+
+
 
         $result=mysqli_query($conn,$sql);
       
@@ -108,7 +113,7 @@ body {
                 </div>
                 <div class="col-md-2 box mt-3"> <a href="track_orders.php"> <button type="button"
                             class="btn btn-warning mb-3 col-md-12">Track package</button> </a> <br>
-                    <a href="cancel.php"> <button type="button" class="btn btn-light col-md-12">Cancel items</button>
+                            <a href="cancel_orders.php?id=<?php echo $row['id'] ?> "> <button type="button" class="btn btn-light col-md-12">Cancel items</button>
                     </a>
                 </div>
             </div>
