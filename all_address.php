@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +12,7 @@
 </head>
 
 <body>
-    
+
     <?php include "navbar.php" ?>
     <?php 
 if(!isset($_SESSION['login'])){
@@ -56,7 +53,8 @@ border-radius: 30px; margin-right:10px">
                 <div class="col-md-3 p-3 m-2 white" style="border:2px gray solid;border-radius:30px">
                     <div class="address">
                         <p><strong><?php echo $row['name'] ?></strong></p>
-                        <p><?php echo $row['address_line1'].",";echo $row['address_line2'].",";echo $row['city']." ";echo $row['pincode']." ";echo $row['state'] ?></p>
+                        <p><?php echo $row['address_line1'].",";echo $row['address_line2'].",";echo $row['city']." ";echo $row['pincode']." ";echo $row['state'] ?>
+                        </p>
                         <p>phone number:<?php echo $row['mobile'] ?></p>
                         <div><a href="#" class="text-decoration-none" style="color:#007185">Edit</a> | <a href="#"
                                 class="text-decoration-none" style="color:#007185">Remove</a></div>

@@ -22,50 +22,98 @@
                 <form action="backend/addAddress.php?user_id=<?php echo $_GET['user_id']?>" method="POST">
                     <div class="mb-3">
                         <label for="" class="form-label">Full name (First and Last name)</label>
-                        <input type="text" class="form-control" name="name" id="" aria-describedby="emailHelpId">
+                        <input type="text" class="form-control" name="name" id="" aria-describedby="emailHelpId" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Mobile</label>
-                        <input type="text" class="form-control" name="moblie" id="" aria-describedby="emailHelpId">
+                        <input type="number" class="form-control" name="moblie" id="number" onchange=checknumber()
+                            aria-describedby="emailHelpId" required>
+                        <div id="numbererror"></div>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Pincode</label>
-                        <input type="text" class="form-control" name="pincode" id="" aria-describedby="emailHelpId">
+                        <input type="number" class="form-control" name="pincode" id="pincode" onchange=checkvalidpincode() aria-describedby="emailHelpId" required>
+                        <div id="pincodeerror"></div>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Flat, House no., Building, Company, Apartment</label>
-                        <input type="text" class="form-control" name="address_line1" id="" aria-describedby="emailHelpId">
+                        <input type="text" class="form-control" name="address_line1" id=""
+                            aria-describedby="emailHelpId" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Area, Street, Sector, Village</label>
-                        <input type="text" class="form-control" name="address_line2" id="" aria-describedby="emailHelpId">
+                        <input type="text" class="form-control" name="address_line2" id=""
+                            aria-describedby="emailHelpId" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Landmark</label>
-                        <input type="text" class="form-control" name="landmark" id="" aria-describedby="emailHelpId">
+                        <input type="text" class="form-control" name="landmark" id="" aria-describedby="emailHelpId" required>
                     </div>
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Town/City</label>
-                                <input type="text" class="form-control" name="city" id="" aria-describedby="emailHelpId">
+                                <input type="text" class="form-control" name="city" id=""
+                                    aria-describedby="emailHelpId" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">State</label>
-                                <input type="text" class="form-control" name="state" id="" aria-describedby="emailHelpId">
+                                <input type="text" class="form-control" name="state" id=""
+                                    aria-describedby="emailHelpId"required>
                             </div>
                         </div>
                         <!--row -->
                     </div>
-                    <input type="submit" value="Add Address" class ="btn btn-warning">
+                    <input type="submit" value="Add Address" class="btn btn-warning">
                 </form>
             </div><!-- container w-50 -->
         </div><!-- container -->
         <?php include "footer.php" ?>
     </div><!-- white -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
+    <script>
+    function checknumber() {
+
+        let number_feild = document.getElementById('number');
+        let value = number_feild.value;
+        let numbers = value.toString().split('').map(Number)
+
+        if (numbers.length > 10) {
+            let numbererror = document.getElementById('numbererror').innerHTML =
+                "<p style='color:red'>Number must be  required 10 digit</p>";
+                number_feild.value="";
+
+        } else if (numbers.length < 10) {
+            let numbererror = document.getElementById('numbererror').innerHTML =
+                "<p style='color:red'>Number must be  required 10 digit</p>";
+                number_feild.value="";
+
+        } else {
+            let numbererror = document.getElementById('numbererror').innerHTML = "";
+        }
+    }
+
+    function checkvalidpincode(){
+        let pincode_feild = document.getElementById('pincode');
+        let value = pincode_feild.value;
+        let pincode = value.toString().split('').map(Number)
+
+        if (pincode.length > 6) {
+            let pincodeerror = document.getElementById('pincodeerror').innerHTML =
+                "<p style='color:red'>Number must be  required 6 digit</p>";
+                pincode_feild.value="";
+
+        } else if (pincode.length < 6) {
+            let pincodeerror = document.getElementById('pincodeerror').innerHTML =
+                "<p style='color:red'>Number must be  required 6 digit</p>";
+                pincode_feild.value="";
+        } else {
+            let pincodeerror = document.getElementById('pincodeerror').innerHTML = "";
+        }
+    }
+    </script>
 </body>
 
 </html>

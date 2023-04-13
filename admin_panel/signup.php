@@ -137,7 +137,7 @@ function checkvalidemail() {
   let email = document.getElementById("email");
     let email_value = email.value;
     let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!regex.test(email)) {
+    if (!regex.test(email_value)) {
         let emailerror = document.getElementById("emailerror").innerHTML =
             "<p style ='color:red'>please enter a valid email</p>";
         email.value = "";
