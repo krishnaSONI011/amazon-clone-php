@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){   //agara user login nahi ha || login false ha 
+  header("location: login.php");                                     //login page pa jao
+  exit;
+}
+?>
+<?php
 include 'includes/_header.php';
 include 'includes/_navbar.php';
 include 'includes/_sidebar.php';
@@ -36,37 +44,30 @@ require 'partials/_dbconnect.php';
             <thead>
                 <tr>
                     <th>s.no</th>
-                    <th>Category</th>
-                    <th>Subcategory</th>
+                    <th>Subcategory Name</th>
                     <th>Image</th>
-
+                  
 
                 </tr>
 
             </thead>
             <tbody>
                 <?php
-                   $sql = "SELECT category.categories, `sub-category`.id, `sub-category`.`name`, `sub-category`.subimage, `sub-category`.parent_cat_id
-                   FROM category
-                   JOIN `sub-category`
-                   ON category.id = `sub-category`.parent_cat_id";
-           
-                    // $sql="SELECT * FROM `sub-category`";
-                    $result=mysqli_query($conn,$sql);
-                  
-                    $num = mysqli_num_rows($result);
-                    $nums=0;
-                  
-                    if($num>0){
-                      $num;
+           $sql="SELECT * FROM `sub-category`";
+           $result=mysqli_query($conn,$sql);
+         
+          $num = mysqli_num_rows($result);
+        $nums=0;
+        
+        if($num>0){
+             $num;
 
 
-               while($row =mysqli_fetch_array($result)){?>
+while($row =mysqli_fetch_array($result)){?>
                 <tr>
-                    <td><?php echo $row['id'] ?></td> 
-                    <td><?php echo $row['categories'] ?></td>
+                    <td><?php echo $row['id'] ?></td>
                     <td><?php echo $row['name'] ?></td>
-                    <td> <img src="../<?php echo $row['subimage'] ?>" alt="" width="100px"> </td>
+                    <td> <img src="../<?php echo $row['subimage'] ?>" alt="" width ="100px"> </td>
                 </tr>
 
 
