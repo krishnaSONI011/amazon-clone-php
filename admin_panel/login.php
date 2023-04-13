@@ -55,11 +55,16 @@ include 'partials/_dbconnect.php';
     <title>Hello, world!</title>
   </head>
   <style>
+    html{
+      background-color: rgb(188, 188, 188);
+    }
     .main-con{
         max-width: 355px;
         border-radius: 5px;
     }
-   
+    .foot{
+      background-color: rgb(188, 188, 188);
+    }
   </style>
   <body>
 
@@ -87,7 +92,7 @@ include 'partials/_dbconnect.php';
 
 
 
-
+<div class="white py-3">
   <div class="text-center img mt-4"> <img src="image/sc-unified._CB485930462_.png" alt="image" width="180px">  </div>
 
     <div class="container mt-3 border main-con">
@@ -120,8 +125,13 @@ include 'partials/_dbconnect.php';
   <div class="text-center mb-2">New to Amazon?</div>
 
 </form>
-<a href="signup.php" class="btn btn-light col-md-12 mb-4">Create Your Amazon Account</a>
+<a href="signup.php" class="btn btn-light col-md-12 mb-3">Create Your Amazon Account</a>
 </div>
+</div>
+
+<div class="text-center my-3">
+    <p class="foot">© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+ </div>
  
 
     <!-- Optional JavaScript -->

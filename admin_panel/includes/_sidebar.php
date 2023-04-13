@@ -116,7 +116,7 @@
                         <li class="nav-item">
                             <a href="view_subcategory.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>View Category</p>
+                                <p>View Sub Category</p>
                             </a>
                         </li>
                     </ul>
@@ -165,7 +165,7 @@
 
                         
                         <li class="nav-item">
-                            <a href="order_view.php" class="nav-link">
+                            <a href="your_orders.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Orders</p>
                             </a>

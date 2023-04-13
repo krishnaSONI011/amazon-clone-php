@@ -36,6 +36,8 @@ require 'partials/_dbconnect.php';
             <thead>
                 <tr>
                     <th>s.no</th>
+                    <th>Category</th>
+                    <th>Subcategory</th>
                     <th>Product Name</th>
                     <th>Product Description</th>
                     <th>Product Price</th>
@@ -47,24 +49,44 @@ require 'partials/_dbconnect.php';
             </thead>
             <tbody>
                 <?php
-           $sql="SELECT * FROM `product`";
-           $result=mysqli_query($conn,$sql);
-         
-          $num = mysqli_num_rows($result);
-        $nums=0;
-        
-        if($num>0){
-             $num;
+                
+                $sql = "SELECT category.categories, 
+                `sub-category`.`name` AS subcategory_name, 
+                `sub-category`.subimage AS subcategory_image, 
+                `sub-category`.parent_cat_id, 
+                product.id, product.name AS product_name, 
+                product.description AS product_description, 
+                product.image AS product_image, 
+                product.price AS product_price, 
+                product.status AS product_status
+                FROM category
+                JOIN `sub-category`
+                ON category.id = `sub-category`.parent_cat_id
+                JOIN product
+                ON `sub-category`.id = product.subcategory_id
+                ";
+ 
+        //    $sql="SELECT * FROM `product`";
+
+                    $result=mysqli_query($conn,$sql);
+                    
+                    $num = mysqli_num_rows($result);
+                    $nums=0;
+                    
+                    if($num>0){
+                        $num;
 
 
-while($row =mysqli_fetch_array($result)){?>
+                while($row =mysqli_fetch_array($result)){?>
                 <tr>
-                    <td><?php echo $row['id'] ?></td>
-                    <td><?php echo $row['name'] ?></td>
-                    <td><?php echo $row['description'] ?></td>
-                    <td><?php echo $row['price'] ?></td>
-                    <td> <img src="../<?php echo $row['image'] ?>" alt="" width ="100px"> </td>
-                    <td> <button><?php echo $row['status'] ?> </button> </td>
+                <td><?php echo $row['id'] ?></td>
+                    <td><?php echo $row['categories'] ?></td>
+                    <td><?php echo $row['subcategory_name'] ?></td>
+                    <td><?php echo $row['product_name'] ?></td>
+                    <td><?php echo $row['product_description'] ?></td>
+                    <td><?php echo $row['product_price'] ?></td>
+                    <td> <img src="../<?php echo $row['product_image'] ?>" alt="" width ="100px"> </td>
+                    <td> <button><?php echo $row['product_status'] ?> </button> </td>
                 </tr>
 
 

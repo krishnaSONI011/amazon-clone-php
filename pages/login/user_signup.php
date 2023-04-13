@@ -45,13 +45,15 @@ else{
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <title>Hello, world!</title>
   </head>
   <style>
     .main-con{
+        border: 2px solid #ebebeb;;
         max-width: 355px;
-        border-radius: 5px;
+        border-radius: 7px;
     }
    
   </style>
@@ -78,11 +80,12 @@ if($showAlert){
 
 
       <!-- ==========================================================FORM======================================================== -->
-  <div class="text-center my-3"> <img src="../../images/lg.png" alt="image" width="120px">  </div>
+      <div class="white py-3">
+  <div class="text-center mb-3"> <img src="../../images/lg.png" alt="image" width="120px">  </div>
 
-    <div class="container border main-con">
+    <div class="container main-con">
 
-    <h2 class="mt-2 ml-3 mb-2">Create Account</h2>
+    <h3 class="mt-2 ml-3 mb-2">Create Account</h3>
      
     <form action="user_signup.php" method="post" class="px-3">
 
@@ -118,6 +121,10 @@ if($showAlert){
 
 </form>
 </div>
+</div>
+<div class="text-center my-3">
+    <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+ </div>
     <!-- ==========================================================FORM END======================================================== -->
 
     <!-- Optional JavaScript -->

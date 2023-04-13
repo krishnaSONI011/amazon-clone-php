@@ -20,10 +20,24 @@ if(!isset($_SESSION['login'])){
     exit;
 }
 include "backend/db_connect.php";
+
 $user_id =$_SESSION['user_id'];
 $sql ="SELECT * FROM `address` WHERE `user_id`='$user_id'";
 $reslut =mysqli_query($conn,$sql);
 $num =mysqli_num_rows($reslut);
+
+
+
+// $query = "SELECT id FROM `address`";
+// $result = mysqli_query($conn, $query);
+// if($result){
+//   $row =mysqli_fetch_assoc($result);
+//   $id = $row['id'];
+//   echo $id;
+// }else{                                                                                                              
+//   $id=0;
+// }
+
 
   
 ?>
@@ -33,8 +47,7 @@ $num =mysqli_num_rows($reslut);
         <div class="container p-4">
             <div class="row pb-4 ">
 
-                <div class="col-md-3 white" id="forborder" style=" border: 3px gray dashed;padding: 54px;
-border-radius: 30px; margin-right:10px">
+                <div class="col-md-3 white" id="forborder" style=" border: 3px gray dashed;padding: 54px;border-radius: 30px; margin-right:10px">
                     <a href="add_address.php?user_id=<?php echo $user_id ?>" class="text-decoration-none">
                         <div class="add text-center ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
@@ -56,8 +69,9 @@ border-radius: 30px; margin-right:10px">
                         <p><?php echo $row['address_line1'].",";echo $row['address_line2'].",";echo $row['city']." ";echo $row['pincode']." ";echo $row['state'] ?>
                         </p>
                         <p>phone number:<?php echo $row['mobile'] ?></p>
-                        <div><a href="#" class="text-decoration-none" style="color:#007185">Edit</a> | <a href="#"
-                                class="text-decoration-none" style="color:#007185">Remove</a></div>
+                        <div> <a href="address_edit.php?id=<?php echo $row['id'] ?> " class="text-decoration-none text-success" style="color:#007185">Edit</a> |
+                              <a href="address_remove.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-danger" style="color:#007185">Remove</a></div>
+                           
                     </div>
                 </div><!-- col-->
                 <?php  }
