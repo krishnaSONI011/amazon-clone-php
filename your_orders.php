@@ -68,16 +68,18 @@ body {
         orders.id, orders.method 
         
         FROM orders
-        LEFT JOIN user ON orders.user_id = user.id 
+        INNER JOIN user ON orders.user_id = user.id 
         INNER JOIN product ON orders.product_id = product.id
-        INNER JOIN `address` ON orders.address_id = address.id";
+        INNER JOIN address ON orders.address_id = address.id";
 
-        
+        // print_r($sql);exit;
 
 
 
 
         $result=mysqli_query($conn,$sql);
+        print_r($result);exit;
+
       
        $row = mysqli_num_rows($result);
        if($row>0){
