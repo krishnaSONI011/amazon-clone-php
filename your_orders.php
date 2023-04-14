@@ -60,7 +60,7 @@ body {
         <?php
         
                 include "backend/db_connect.php";
-                $user_id =$_SESSION['user_id'];
+                $user_id = $_SESSION['user_id'];
                 $sql1="SELECT * FROM `user` WHERE `id`='$user_id'";
                 $users =mysqli_query($conn,$sql1);
 
