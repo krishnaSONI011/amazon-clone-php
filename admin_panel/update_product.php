@@ -7,21 +7,30 @@ if(isset($_POST['update'])){
    
      $product_name=$_POST['product_name'];
      $product_price=$_POST['product_price'];
-     
-     $img_loc=$_FILES['product_image']['tmp_name'];
-     $img_name=$_FILES['product_image']['name'];
-     $img_des = "admin_panel/uploaded_Images/".$img_name;
-     move_uploaded_file($img_loc, 'uploaded_Images/' .$img_name);
+
     
      $product_disc=$_POST['product_disc'];
      $status=$_POST['status'];
      $select_cat_id=$_POST['select_cat_id'];
      $select_subcat_id=$_POST['select_subcat_id'];
 
-     $sql = "UPDATE `product` SET `name`='$product_name',`description`='$product_disc',`image`='$img_des',`price`='$product_price',`status`='$status' WHERE  `id` ='$id'";
-    $result=mysqli_query($conn,$sql);
-    header("location: view_product.php");
+     if(!empty($_FILES['image']['tmp_name'])){
+        $img_loc=$_FILES['image']['tmp_name'];
+        $img_name=$_FILES['image']['name'];
+        $img_des = "uploaded_Images/".$img_name;
+        move_uploaded_file($img_loc, 'uploaded_Images/'.$img_name);  
 
+        $sql = "UPDATE `product` SET `name`= '$product_name',`description`='$product_disc',`image`='$img_des',`price`='$product_price',`status`='$status' WHERE  `id` ='$id'";
+        
+     }
+    else{
+        $IMAGE1 = $_POST["old_img"];  
+
+     $sql = "UPDATE `product` SET `name`='$product_name',`description`='$product_disc',`image`='$IMAGE1',`price`='$product_price',`status`='$status' WHERE  `id` ='$id'";
+    
+    }
+     $result=mysqli_query($conn,$sql);
+    header("location: view_product.php");
 
 }
 
@@ -99,15 +108,31 @@ include 'partials/_dbconnect.php';
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="product_price" class="form-label">Product Price</label>
-                            <input type="number" value="<?php echo $data['price'] ?>" class="form-control" name="product_price" id="exampleInputPassword1">
+                            <input type="number" value="<?php echo $data['price'] ?>" class="form-control"
+                                name="product_price" id="exampleInputPassword1">
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label for="product_image" class="form-label">Product image</label>
-                            <input type="file" value="<?php echo $data['image'] ?>" class="form-control" name="product_image" id="exampleInputPassword1">
+                            <label for="product_image" class="form-label">Product image</label> <br>
+                            <input type="file" name="image" id="" value="./<?php echo $data['image'] ?>"> <img src="./<?php echo $data['image']  ?>"
+                                width='120px'>
                         </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="old_img" class="form-label"></label>
+                            <input type="hidden" value="./<?php echo $data['image'] ?>" class="form-control"
+                                name="old_img" id="old_img" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="id" class="form-label"></label>
+                            <input type="hidden" value="<?php echo $data['id'] ?>" class="form-control"
+                                name="id" id="id" aria-describedby="emailHelp">
+                        </div>
+
                         <div class="form-group col-md-12">
                             <label for="exampleFormControlTextarea1">Proguct Discription</label>
-                            <textarea class="form-control" value="<?php echo $data['description'] ?>" name="product_disc" id="exampleFormControlTextarea1"
+                            <textarea class="form-control" value="<?php echo $data['description'] ?>"
+                                name="product_disc" id="exampleFormControlTextarea1"
                                 rows="3"><?php echo $data['description'] ?> </textarea>
                         </div>
 
@@ -118,7 +143,7 @@ include 'partials/_dbconnect.php';
                                 <option value="0">Deactive</option>
                             </select>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <select name="select_cat_id" class="form-control" id="categories-dropdown">
                                 <option>select categories</option>

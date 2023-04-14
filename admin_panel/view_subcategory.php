@@ -46,6 +46,7 @@ require 'partials/_dbconnect.php';
                     <th>s.no</th>
                     <th>Subcategory Name</th>
                     <th>Image</th>
+                    <th>Operation</th>
                   
 
                 </tr>
@@ -68,6 +69,8 @@ while($row =mysqli_fetch_array($result)){?>
                     <td><?php echo $row['id'] ?></td>
                     <td><?php echo $row['name'] ?></td>
                     <td> <img src="../<?php echo $row['subimage'] ?>" alt="" width ="100px"> </td>
+                    <td> <a href="update_subcategory.php?id=<?php echo $row['id'] ?> "> <button type="button" class="btn btn-success">Update</button>
+                         <a href="remove_subcategory.php?id=<?php echo $row['id'] ?> "> <button type="button" class="btn btn-danger my-2">Remove</button> </td>
                 </tr>
 
 

@@ -81,7 +81,8 @@ $num_address =mysqli_num_rows($adress);
                     </div>
                     <!-- main-address -->
                     <button type="button" class="btn btn-warning" id="address_btn">Select address</button>
-
+                   <a href="all_address.php"> <button type="button" class="btn btn-dark" id="address_btn">Add address</button> </a>
+                   
 
                 </div>
                 <hr>
