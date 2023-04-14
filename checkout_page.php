@@ -59,7 +59,7 @@ $num_address =mysqli_num_rows($adress);
                             ?>
                         <div class="address-body m-2">
                             <div class="body d-flex width ">
-                                <input type="radio" value="<?php echo $row['id']?>" id="<?php echo $forid?>" class="radio" name="radio">
+                                <input type="radio" value="<?php echo $row['id']?>" id="<?php echo $forid?>" class="radio" name="radio" >
                                 <label for="<?php echo $forid?>"
                                     class="label"><strong><?php echo $row['name'] ?></strong>
                                     <?php echo $row['address_line1'].","; echo $row['address_line2'].","; echo $row['city']." "; echo $row['state']." "; echo $row['pincode']." "?>
@@ -77,12 +77,12 @@ $num_address =mysqli_num_rows($adress);
                     <div id="sele">
                         <strong> Selected Address : </strong>
                         <p id="address-here"> </p>
-                        <input type="hidden" name="final-address" value="" id="address-here-database">
+                        <input type="hidden" name="final-address" value="" id="address-here-database" >
                     </div>
                     <!-- main-address -->
                     <button type="button" class="btn btn-warning" id="address_btn">Select address</button>
-                   <a href="all_address.php"> <button type="button" class="btn btn-dark" id="address_btn">Add address</button> </a>
-                   
+                    <a href="all_address.php"><button type="button" class="btn btn-dark" id="address_btn">Add address</button></a>
+
 
                 </div>
                 <hr>
@@ -91,7 +91,7 @@ $num_address =mysqli_num_rows($adress);
                     <h4>2. Payment Method </h4>
                     <hr>
                     <div class="payment-body">
-                        <input type="radio" name="payment" id="cash" value="COD">
+                        <input type="radio" name="payment" id="cash" value="COD" required>
                         <label for="cash">Cash on delivery</label>
                     </div>
                     <hr>
@@ -114,7 +114,7 @@ $num_address =mysqli_num_rows($adress);
                     <div class="body p-2">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <img src="<?php echo $row3['image'] ?>" alt="" class="item-img">
+                                <img src="admin_panel/<?php echo $row3['image'] ?>" alt="" class="item-img">
                             </div>
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
@@ -140,12 +140,12 @@ $num_address =mysqli_num_rows($adress);
                     <div class="body p-2">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <img src="<?php echo $row3['image'] ?>" alt="" class="item-img">
+                                <img src="admin_panel/<?php echo $row3['image'] ?>" alt="" class="item-img">
                             </div>
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
                                 </p>
-                                <input type="hidden" name="product[]" vlaue="<?php echo $row3['id'] ?>">
+                                <input type="text" name="product[]" value="<?php echo $pro_id ?>">
                             </div>
                         </div>
                     </div>
@@ -162,10 +162,11 @@ $num_address =mysqli_num_rows($adress);
                     <hr>
                     <p>no. of items: 2</p>
                     <p> totle: 400</p>
-                    <?php $price = $_POST['price'] ==null ? $p_price :$_POST['price']; ?>
+                    <?php $price = ""?>
+                    <!-- if pgaeid==product => p_price else ==Post -->
                     
                     <hr>
-                    <p id="">Oreder Total: <?php  echo $price ?></p>
+                    <p id="">Oreder Total: <?php  echo $price = $page_id =="product" ?$p_price: $_POST['price']; ?></p>
                     <hr>
                     <button type="submit" class="btn btn-warning">Proceed to buy</button>
                 </div>

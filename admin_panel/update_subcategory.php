@@ -1,7 +1,6 @@
 
 <!-- =============================================================Product update Query Start========================================================================== -->
 <?php
- $idd = $_GET['id'];
 include 'partials/_dbconnect.php';
 $showmassage=false;
 if(isset($_POST['update'])){
@@ -19,17 +18,17 @@ if(isset($_POST['update'])){
         
      }
     else{
-        $old_image = $_POST["old_img"];  
-        $sql = "UPDATE `sub-category` SET `name`='$sub_name',`subimage`='$old_image' WHERE `id` ='$id'";
+        $IMAGE1 = $_POST["old_img"];  
+
+     $sql = "UPDATE `product` SET `name`='$product_name',`description`='$product_disc',`image`='$IMAGE1',`price`='$product_price',`status`='$status' WHERE  `id` ='$id'";
     
     }
      $result=mysqli_query($conn,$sql);
-    header("location: view_subcategory.php");
+    header("location: view_product.php");
 
 }
 
 ?>
-<!-- =============================================================Product update Query Ends========================================================================== -->
 
 <?php
 include 'includes/_header.php';
@@ -68,9 +67,9 @@ include 'partials/_dbconnect.php';
 
     <?php 
     include 'partials/_dbconnect.php';
-    $idd = $_GET['id'];
-    
-    $sql ="SELECT * FROM sub-category WHERE `id`= $idd";
+    $id = $_GET['id'];
+
+    $sql ="SELECT * FROM `sub-category` WHERE `id`= $id";
     $result = mysqli_query($conn,$sql);
     $data = mysqli_fetch_array($result);
     ?>
@@ -107,13 +106,13 @@ include 'partials/_dbconnect.php';
 
                         <div class="col-md-12 mb-3">
                             <label for="product_image" class="form-label">Product image</label> <br>
-                            <input type="file" name="image" id="" value="./<?php echo $data['subimage'] ?>"> <img
+                            <input type="file" name="image" id="" value="<?php echo $data['subimage'] ?>"> <img
                                 src="./<?php echo $data['subimage']  ?>" width='120px'>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="old_img" class="form-label"></label>
-                            <input type="text" value="./<?php echo $data['subimage'] ?>" class="form-control"
+                            <input type="text" value="<?php echo $data['subimage'] ?>" class="form-control"
                                 name="old_img" id="old_img" aria-describedby="emailHelp">
                         </div>
 

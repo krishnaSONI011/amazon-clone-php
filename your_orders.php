@@ -113,15 +113,13 @@ body {
             </div>
 
             <div class="row box mb-4">
-                <div class="col-md-2 box"> <img src="<?php echo $row_product['image']; ?>" alt="" width="200px"> </div>
+                <div class="col-md-2 box"> <img src="admin_panel/<?php echo $row_product['image']; ?>" alt="" width="200px"> </div>
                 <div class="col-md-7 box">
                     <p class="my-5"><?php echo $row_product['name'];?> <br>
                     <?php echo $row_product['description'];?></p>
                 </div>
-                <div class="col-md-2 box mt-3"> <a href="track_orders.php"> <button type="button"
-                            class="btn btn-warning mb-3 col-md-12">Track package</button> </a> <br>
-                            <a href="cancel_orders.php?id=<?php echo $row_product['id'] ?> "> <button type="button" class="btn btn-light col-md-12">Cancel items</button>
-                    </a>
+                <div class="col-md-2 box mt-3"> <a href="track_orders.php?id=<?php echo $row_product['id'] ?> "> <button type="button" class="btn btn-warning col-md-12 mb-2">Track Order</button> </a>
+                                                <a href="cancel_orders.php?id=<?php echo $row_product['id'] ?> "> <button type="button" class="btn btn-light col-md-12">Cancel Order</button> </a>
                 </div>
             </div>
     

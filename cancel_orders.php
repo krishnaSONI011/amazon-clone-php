@@ -1,10 +1,15 @@
 <?php 
- 
+  
  include "admin_panel/partials/_dbconnect.php";
- echo $ID = $_GET['id'];
+ $ID = $_GET['id'];
 
- $sql = "DELETE FROM `orders` WHERE id = $ID";
+ $sql = "DELETE FROM `orders` WHERE product_id = $ID";
  $result = mysqli_query($conn, $sql);
+ if($result){
+    echo "deleted";
+ }else{
+    echo "not deleted";
+ }
+ header("location: your_orders.php");
 
- header('location: your_orders.php');
 ?>

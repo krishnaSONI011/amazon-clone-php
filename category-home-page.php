@@ -31,7 +31,7 @@ if( $num >0 ){
         <?php while($row2=mysqli_fetch_array($result2)){ ?>
         <div class="category-item text-center">
                 <a href="allproduct.php?categoryid=<?php echo $row['id'] ?> & subcategoryid=<?php echo $row2['id'] ?>" class="text-decoration-none" style="color:black">
-                    <img src="<?php echo $row2['subimage']?>" alt="">
+                    <img src="admin_panel/<?php echo $row2['subimage']?>" alt="">
                     <p><?php echo $row2['name'] ?></p>
                 </a>
             </div>

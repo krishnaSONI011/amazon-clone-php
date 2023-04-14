@@ -128,8 +128,8 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="logout.php" role="button">
+        <i class="fa fa-power-off" style="font-size:20px;color:yellow"></i>
         </a>
       </li>
     </ul>

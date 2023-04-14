@@ -29,6 +29,7 @@ require 'partials/_dbconnect.php';
     <!-- /.content-header -->
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <div class="container">
 
@@ -88,8 +89,8 @@ require 'partials/_dbconnect.php';
                     <td><?php echo $row['product_price'] ?></td>
                     <td> <img src="<?php echo $row['product_image'] ?>" alt="" width ="100px"> </td>
                     <td> <button><?php echo $row['product_status'] ?> </button> </td>
-                    <td> <a href="update_product.php?id=<?php echo $row['id'] ?> "> <button type="button" class="btn btn-success">Update</button>
-                         <a href="remove_product.php?id=<?php echo $row['id'] ?> "> <button type="button" class="btn btn-danger my-2">Remove</button> </td>
+                    <td> <a href="update_product.php?id=<?php echo $row['id'] ?> "> <i class='fas fa-edit mx-3' style='font-size:24px;color:lightgreen'></i></a>
+                         <a href="remove_product.php?id=<?php echo $row['id'] ?> "> <i class='fas fa-trash-alt' style='font-size:24px;color:red'></i></a> </td>
                 </tr>
 
 

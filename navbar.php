@@ -34,7 +34,7 @@
                                     id="btn-log_out">Log out</button></a></li>
 
                         <li><a class="dropdown-item" href="#">Your Account</a></li>
-                        <li><a class="dropdown-item" href="#">Your Orders</a></li>
+                        <li><a class="dropdown-item" href="your_orders.php">Your Orders</a></li>
                     </ul>
                 </div>
             </div>

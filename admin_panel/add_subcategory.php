@@ -58,7 +58,7 @@ if(isset($_POST['submit'])){
     $parentid=$_POST['select'];
     $img_loc=$_FILES['subcatimage']['tmp_name'];
     $img_name=$_FILES['subcatimage']['name'];
-    $img_des = "admin_panel/uploaded_Images/subimage".$img_name;
+    $img_des = "uploaded_Images/subimage".$img_name;
     move_uploaded_file($img_loc, 'uploaded_Images/subimage' .$img_name);
    
     $sql="INSERT INTO `sub-category`(`name`,`subimage`, `parent_cat_id`) VALUES ('$subcatname','$img_des','$parentid')";
