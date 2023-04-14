@@ -64,7 +64,7 @@
                             <div class="col-md-6">
                                 <label for="" class="form-label">State</label>
                                 <input type="text" class="form-control" name="state" id=""
-                                    aria-describedby="emailHelpId"required>
+                                    aria-describedby="emailHelpId" required>
                             </div>
                         </div>
                         <!--row -->

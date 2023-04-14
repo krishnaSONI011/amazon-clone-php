@@ -19,7 +19,16 @@
 </style>
 
 <body>
-    <?php include "navbar.php" ?>
+    <?php include "navbar.php"; 
+     
+ include "admin_panel/partials/_dbconnect.php";
+ $ID = $_GET['id'];
+
+ $sql="SELECT * FROM `product` WHERE id=$ID";
+ $res=mysqli_query($conn, $sql);
+  
+ $row=mysqli_fetch_array($res);
+    ?>
 
 
     <div class="container main-con my-5">
@@ -61,9 +70,10 @@
                     </label>
                 </div>
             </div>
-
+           
             <div class="second_box main-con col-md-4">
-                <img src="images/mobile-cate.jpg" alt="" width="180px">
+            <?php echo $row['name']?>
+                <img src="admin_panel/<?php echo $row['image']?>" alt="" width="180px">
             </div>
 
 

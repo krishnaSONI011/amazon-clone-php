@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
  $product_price=$_POST['product_price'];
  $img_loc=$_FILES['product_image']['tmp_name'];
  $img_name=$_FILES['product_image']['name'];
- $img_des = "admin_panel/uploaded_Images/".$img_name;
+ $img_des = "uploaded_Images/".$img_name;
  move_uploaded_file($img_loc, 'uploaded_Images/' .$img_name);
 
  $product_disc=$_POST['product_disc'];

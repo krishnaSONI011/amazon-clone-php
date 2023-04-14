@@ -62,6 +62,7 @@ require 'partials/_dbconnect.php';
                     <th>pincode</th>
                     <th>method</th>
                     <th>image</th>
+                   
                 </tr>
 
             </thead>
@@ -103,7 +104,8 @@ require 'partials/_dbconnect.php';
                     <td><?php echo $row['state']?></td>
                     <td><?php echo $row['pincode']?></td>
                     <td><?php echo $row['method']?></td>
-                    <td> <img src="../<?php echo $row['image'] ?>" alt="" width="100px"></td>
+                    <td> <img src="<?php echo $row['image'] ?>" alt="" width="100px"></td>
+                    
 
                     <?php $n=$n+1;  }?>
                 </tr>

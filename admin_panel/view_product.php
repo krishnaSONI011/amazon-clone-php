@@ -43,6 +43,7 @@ require 'partials/_dbconnect.php';
                     <th>Product Price</th>
                     <th>Product Image</th>
                     <th>Status</th>
+                    <th>operation</th>
 
                 </tr>
 
@@ -85,8 +86,12 @@ require 'partials/_dbconnect.php';
                     <td><?php echo $row['product_name'] ?></td>
                     <td><?php echo $row['product_description'] ?></td>
                     <td><?php echo $row['product_price'] ?></td>
-                    <td> <img src="../<?php echo $row['product_image'] ?>" alt="" width ="100px"> </td>
+                    <td> <img src="<?php echo $row['product_image'] ?>" alt="" width ="100px"> </td>
                     <td> <button><?php echo $row['product_status'] ?> </button> </td>
+                    <td>
+                        <a href="update_product.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-success">update</button></a>
+                        <a href="remove_product.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-danger my-2">delete</button></a>
+                    </td>
                 </tr>
 
 
