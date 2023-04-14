@@ -61,38 +61,12 @@
 
 
 
-                <!-- ===============================================================USERS=========================================================== -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Users
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-
-                        <li class="nav-item">
-                            <a href="adduser.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Users</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="viewuser.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View Users</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-
+        
 
                 <!-- ===============================================================Category=========================================================== -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Category
                             <i class="fas fa-angle-left right"></i>
@@ -129,7 +103,7 @@
                 <!-- ===============================================================Products=========================================================== -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <i class="nav-icon fas fa-tshirt "></i> 
                         <p>
                             Products
                             <i class="fas fa-angle-left right"></i>
@@ -156,7 +130,7 @@
                 <!-- ===============================================================Orders=========================================================== -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
                             Orders
                             <i class="fas fa-angle-left right"></i>
@@ -188,8 +162,8 @@
                 <li class="nav-header">Seetings</li>
                 <!-- ===============================================================ADMIN PROFILE=========================================================== -->
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                    <a href="admin_profile.php" class="nav-link">
+                        <i class="nav-icon fas fa-user-circle"></i>
                         <p>
                             Admin Profile
                             <span class="badge badge-info right">2</span>
@@ -199,7 +173,7 @@
                 <!-- ===============================================================Register Users=========================================================== -->
                 <li class="nav-item">
                     <a href="viewuser.php" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                        <i class="nav-icon far fa-address-book"></i>
                         <p>
                             Registered Users
                         </p>

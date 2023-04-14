@@ -93,7 +93,7 @@ if(isset($_POST['submit'])){
                 <div class="container">
                     <form action="add_product.php" method="post" enctype='multipart/form-data' class="row">
                         <div class="col-md-12 mb-3">
-                            <label for="product_name"  class="form-label">Product name</label>
+                            <label for="product_name" class="form-label">Product name</label>
                             <input type="text" class="form-control" name="product_name" id="product_name"
                                 aria-describedby="emailHelp">
                         </div>
@@ -107,7 +107,8 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleFormControlTextarea1">Proguct Discription</label>
-                            <textarea class="form-control" name="product_disc" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="product_disc" id="exampleFormControlTextarea1"
+                                rows="3"></textarea>
                         </div>
                         <div class="col-md-12 mb-3">
                             <select class="form-control" name="status" id="">
@@ -147,32 +148,32 @@ if(isset($_POST['submit'])){
 
 
 
-<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-<script>
-$(document).ready(function() {
-    // alert();
-    $('#categories-dropdown').on('change', function() {
-        var category_id = $(this).val();
-        // alert(category_id);
-        if (category_id != '') {
-            $.ajax({
-                url: "getsubcategory.php",
-                method: "POST",
-                data: {
-                    category_id: category_id
-                },
-                success: function(data) {
-                    // $('#subcategory-dropdown').fadeIn();
-                    console.log(data);
-                    $('#subcategory-dropdown').html(data);
-                }
-            });
-        }
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+    $(document).ready(function() {
+        // alert();
+        $('#categories-dropdown').on('change', function() {
+            var category_id = $(this).val();
+            // alert(category_id);
+            if (category_id != '') {
+                $.ajax({
+                    url: "getsubcategory.php",
+                    method: "POST",
+                    data: {
+                        category_id: category_id
+                    },
+                    success: function(data) {
+                        // $('#subcategory-dropdown').fadeIn();
+                        console.log(data);
+                        $('#subcategory-dropdown').html(data);
+                    }
+                });
+            }
+        });
+
+
     });
-
-
-});
-</script>
+    </script>
 
 
 

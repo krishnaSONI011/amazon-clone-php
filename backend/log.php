@@ -30,11 +30,11 @@ if($num ==1){
     }   
 
     else{
-        echo "password is worn bhardbe";    
+        header("location: ../admin_panel/error.php");   
     }
 }
 else{
-    echo "not found";
+    header("location: ../admin_panel/error.php");
 }
 }
 ?>

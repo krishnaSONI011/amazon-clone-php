@@ -105,7 +105,10 @@ require 'partials/_dbconnect.php';
                     <td><?php echo $row['pincode']?></td>
                     <td><?php echo $row['method']?></td>
                     <td> <img src="<?php echo $row['image'] ?>" alt="" width="100px"></td>
+<<<<<<< HEAD
                     
+=======
+>>>>>>> 204c9fa31495b5f6f7edb42f704080cb6c7c2235
 
                     <?php $n=$n+1;  }?>
                 </tr>
