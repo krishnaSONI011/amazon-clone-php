@@ -60,7 +60,7 @@ body {
         <?php
         
                 include "backend/db_connect.php";
-                $user_id = $_SESSION['user_id'];
+                $user_id =$_SESSION['user_id'];
                 $sql1="SELECT * FROM `user` WHERE `id`='$user_id'";
                 $users =mysqli_query($conn,$sql1);
 
@@ -118,15 +118,8 @@ body {
                     <p class="my-5"><?php echo $row_product['name'];?> <br>
                     <?php echo $row_product['description'];?></p>
                 </div>
-<<<<<<< HEAD
-                <div class="col-md-2 box mt-3"> <a href="track_orders.php?id=<?php echo $product_id ?>"> <button type="button"
-                            class="btn btn-warning mb-3 col-md-12">Track package</button> </a> <br>
-                            <a href="cancel_orders.php?id=<?php echo $product_id ?> "> <button type="button" class="btn btn-light col-md-12">Cancel items</button>
-                    </a>
-=======
                 <div class="col-md-2 box mt-3"> <a href="track_orders.php?id=<?php echo $row_product['id'] ?> "> <button type="button" class="btn btn-warning col-md-12 mb-2">Track Order</button> </a>
                                                 <a href="cancel_orders.php?id=<?php echo $row_product['id'] ?> "> <button type="button" class="btn btn-light col-md-12">Cancel Order</button> </a>
->>>>>>> 204c9fa31495b5f6f7edb42f704080cb6c7c2235
                 </div>
             </div>
     

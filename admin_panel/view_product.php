@@ -66,7 +66,7 @@ require 'partials/_dbconnect.php';
                 ON category.id = `sub-category`.parent_cat_id
                 JOIN product
                 ON `sub-category`.id = product.subcategory_id
-                ";
+                ORDER BY product_price DESC ";
  
         //    $sql="SELECT * FROM `product`";
 
@@ -77,11 +77,13 @@ require 'partials/_dbconnect.php';
                     
                     if($num>0){
                         $num;
+                    $n=0;
 
-
-                while($row =mysqli_fetch_array($result)){?>
+                while($row =mysqli_fetch_array($result)){ 
+                    $n=$n+1;?>
+                
                 <tr>
-                <td><?php echo $row['id'] ?></td>
+                    <td><?php echo $n; ?></td>
                     <td><?php echo $row['categories'] ?></td>
                     <td><?php echo $row['subcategory_name'] ?></td>
                     <td><?php echo $row['product_name'] ?></td>
@@ -91,10 +93,11 @@ require 'partials/_dbconnect.php';
                     <td> <button><?php echo $row['product_status'] ?> </button> </td>
                     <td> <a href="update_product.php?id=<?php echo $row['id'] ?> "> <i class='fas fa-edit mx-3' style='font-size:24px;color:lightgreen'></i></a>
                          <a href="remove_product.php?id=<?php echo $row['id'] ?> "> <i class='fas fa-trash-alt' style='font-size:24px;color:red'></i></a> </td>
+                         
                 </tr>
-
-
-                <?php } ?>
+                     
+                 
+                <?php  } ?>
                 <?php } ?>
             </tbody>
         </table>

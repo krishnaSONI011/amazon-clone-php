@@ -78,8 +78,8 @@ require 'partials/_dbconnect.php';
        WHERE 
            user.id = orders.user_id 
            AND product.id = orders.product_id 
-           AND user.id = address.user_id;
-       ";
+           AND user.id = address.user_id 
+           ORDER BY product.price asc";
 
            $result=mysqli_query($conn,$sql);
          
@@ -105,12 +105,7 @@ require 'partials/_dbconnect.php';
                     <td><?php echo $row['pincode']?></td>
                     <td><?php echo $row['method']?></td>
                     <td> <img src="<?php echo $row['image'] ?>" alt="" width="100px"></td>
-<<<<<<< HEAD
-                    
-=======
->>>>>>> 204c9fa31495b5f6f7edb42f704080cb6c7c2235
-
-                    <?php $n=$n+1;  }?>
+                 <?php $n=$n+1;  }?>
                 </tr>
 
 
