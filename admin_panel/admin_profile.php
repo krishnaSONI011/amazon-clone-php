@@ -50,7 +50,7 @@ include 'includes/_sidebar.php';
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="uploaded_Images/lm.jpeg"
+                       src="uploaded_Images/admin.jpg"
                        alt="User profile picture">
                 </div>
 

@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){   //agara user login nahi ha || login false ha 
+  header("location: login.php");                                     //login page pa jao
+  exit;
+}
+?>
+
+<?php
 include 'includes/_header.php';
 include 'includes/_navbar.php';
 include 'includes/_sidebar.php';
@@ -15,7 +24,7 @@ require 'partials/_dbconnect.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">View Users</h1>
+                    <h1 class="m-0">View Product</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
