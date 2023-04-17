@@ -8,7 +8,7 @@
  
        
         <div class="search d-flex">
-            <form action="" method="post" class="w-100 d-flex">
+            <form action="search-product.php" method="post" class="w-100 d-flex">
             <input name="search-product" id="" class="form-input" type="text" placeholder="Search Amazon.in">
             <button id="btn-search" name="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
