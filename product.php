@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){   //agara user login nahi ha || login false ha 
+  header("location:pages/login/login.php");                                     //login page pa jao
+  exit;
+}
+
+?>
+
+
 <?php  
 $id= $_GET['id'];
 include "backend/db_connect.php";
@@ -99,7 +110,7 @@ if(!isset($_GET['status'])){
                                 <button class="btn btn-warning w-100 border-r">Add to carts</button>
                             </a>
                            <?php }
-                                  } ?>
+                             } ?>
                             <a href="checkout_page.php?id=<?php echo $_SESSION['user_id']?>&product_id=<?php echo $id ?>&page_id=product"><button class="btn btn-orange w-100 my-3 border-r">Buy Now</button></a>
                         </div>
                     </div>
