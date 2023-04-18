@@ -145,7 +145,7 @@ $num_address =mysqli_num_rows($adress);
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
                                 </p>
-                                <input type="text" name="product[]" value="<?php echo $pro_id ?>">
+                                <input type="hidden" name="product[]" value="<?php echo $pro_id ?>">
                             </div>
                         </div>
                     </div>
