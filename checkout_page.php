@@ -1,3 +1,4 @@
+
 <?php
 $user_id=$_GET['id'];
 $page_id=$_GET['page_id'];
@@ -118,7 +119,7 @@ $num_address =mysqli_num_rows($adress);
                             </div>
                             <div class="col-md-4">
                                 <p><strong><?php echo $row3['name']." ";  ?></strong><?php echo $row3['description'] ?>
-                                <input type="text" name="product[]" value="<?php echo $pro_id ?>">
+                                <input type="hidden" name="product[]" value="<?php echo $pro_id ?>">
 
                                 </p>
                             </div>
