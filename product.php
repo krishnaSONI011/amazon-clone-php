@@ -1,12 +1,4 @@
-<?php
-session_start();
 
-if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!= true){   //agara user login nahi ha || login false ha 
-  header("location:pages/login/login.php");                                     //login page pa jao
-  exit;
-}
-
-?>
 
 
 <?php  

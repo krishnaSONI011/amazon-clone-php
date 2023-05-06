@@ -1,7 +1,6 @@
 <?php 
  $page_id=$_GET['pageid'];
- 
-session_start();
+ session_start();
 if($_SERVER['REQUEST_METHOD']=="POST"){
     include "db_connect.php" ;
     $email =$_POST['email'];
@@ -12,6 +11,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 if($num ==1){
     $row=mysqli_fetch_array($result);
     if($row['password']== $pass){
+        
+        
         $_SESSION['name'] =$row['firstname'];
         $_SESSION['user_id'] =$row['id'];
         $_SESSION['login'] =true;
